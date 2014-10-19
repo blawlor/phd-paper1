@@ -11,7 +11,11 @@ We survey bioinformatics practicioners' familiarity with, and attitude towards, 
 # Outline of the Problem
 
 # Consequences of the Problem
-We divide the bio-informatic use of software into academic and practical, while acknowledging that individual bio-informaticians typically work in both contexts
+We divide the bio-informatic use of software into academic and practical, while acknowledging that individual bio-informaticians typically work in both contexts. 
+
+Academic bio-informaticians use software development as part of their research and publications. Scripting and high-level programming languages are often used to probe data and informally test hypostheses. R, Matlab and similar development platforms are used to clean, analyse and present data. 
+
+Bio-informatic practicioners will develop basic tools or larger systems to support longer-term projects and goals within particular organisations or across the scientific community.
 
 ## Consequences of the Problem for Bio-Informatic Academics
 Lack of s/w engineering values means that many (most?) publications that treat data informatically cannot make that software or data available in a reproducible way for peer review. As a consequence, a larger percentage of findings will be reversed or withdrawn from publication when compared to other fields. (Reproduceability) 
@@ -43,7 +47,12 @@ Difficulty in productizing, or even openly sharing, promising software solutions
 
 ## Description of Software Engineering Values  
 With respect to the following diagram:
-![Categories of Software Engineering Values](./images/ProcessPyramid.jpeg =100x100)
+```{r fig.width=6, fig.height=10, echo=FALSE, warning=FALSE}
+library(png)
+library(grid)
+img <- readPNG("./images/ProcessPyramid.png", TRUE)
+ grid.raster(img)
+```
 
 ## Results of Survey
 
