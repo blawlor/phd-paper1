@@ -1,19 +1,70 @@
 ---
-title: "A Survey of Software Engineering Values in Bio-informatic Contexts"
+title: "A Review of Software Engineering Values in Bio-informatic Contexts"
 author: "Brendan Lawlor, Paul Walsh"
 date: "Saturday, October 11, 2014"
 output: pdf_document
-abstract: In this paper we survey bioinformatics practicioners' familiarity with, and attitude towards, the infrastructure, processes and practices that are currently considered standard in software engineering practice. We use this as a measure of the extent to which software engineering values prevail in bioinformatics contexts. The generally held opinion that such values are lacking is supported by the results. Other authors make a special case for the difficulty of applying good software engineering values to bioinformatics in particular or to scientific software development in general. However we argue that there is no such special case, and propose instead how lessons from industry might best be applied to scientific and academic settings.
+abstract: In this paper we consider the already-identified problem of the lack of software engineering capabilities in bio-informatic contexts, and discuss the consequences of this lack. We examine existing explanations and remedies to this problem, point out their shortcomings, and propose alternatives. We examine the way 
 ---
+
+We survey bioinformatics practicioners' familiarity with, and attitude towards, the infrastructure, processes and practices that are currently considered standard in software engineering practice and we use this as a measure of the extent to which software engineering values prevail in bioinformatics contexts. The generally held opinion that such values are lacking is supported by the results. Other authors make a special case for the difficulty of applying good software engineering values to bioinformatics in particular or to scientific software development in general. However we argue that there is no such special case, and propose instead how lessons from industry might best be applied to scientific and academic settings.
   
-  
-  
+# Outline of the Problem
+
+# Consequences of the Problem
+We divide the bio-informatic use of software into academic and practical, while acknowledging that individual bio-informaticians typically work in both contexts
+
+## Consequences of the Problem for Bio-Informatic Academics
+Lack of s/w engineering values means that many (most?) publications that treat data informatically cannot make that software or data available in a reproducible way for peer review. As a consequence, a larger percentage of findings will be reversed or withdrawn from publication when compared to other fields. (Reproduceability) 
+
+Lack of software testing = same as above.(Testing) 
+
+Inability to perform desirable cross-check due to inability to scale algorithms which, by their nature, tend to grow exponentially.(Scalability) 
+
+
+
+## Consequences of the Problem for Bio-Informatic Practicioners
+
+Difficulty in productizing, or even openly sharing, promising software solutions. (Scalability)(Reproducability)(Modularization)
+
+
+# Existing Explanations and Remedies from the Literature
+## Explanations
+
+* Complexity (special pleading)
+* Volatility (special pleading)
+* Budget and Resources
+* End User (Scientist) as programmer
+
+## Remedies
+* Education
+* Methodologies
+
+# Programming vs Software Engineering
+
+## Description of Software Engineering Values  
 ![Categories of Software Engineering Values](./images/ProcessPyramid.jpeg)
 
-You can also embed plots, for example:
+## Results of Survey
 
-```{r, echo=FALSE}
-plot(cars)
-```
+# Shortcomings of Existing Explanations and Remedies
+* Problems with current explanations and their remedies, with reference to the distinction between comp-sci, programming and software engineering. 
+* Universities produce computer scientists. Industry and experience creates software engineers (apprenticeship).
+* The lack of software engineering values in bio-informatics is due to the lack of software _engineers_ in bio-informatics.
+* This should not, in our opinion, be addressed by trying to teach bio-informaticians how to become software engineers (in the same way that we don't expect bio-informaticians to learn how to build their own centrifuges and gas chromatograph spectrometers). In fact, we feel this approach is impossible to realise on a scale large enough to solve the problem across the bioi-informatics community as a whole. 
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# Alternative Explanations and Remedies
+A true appreciation of the formation and role of a software engineer leads to a different approach for integrating its values into a bio-informatic (or indeed scientific) setting. While the current emphaisis is on cross training scientists to become better programmers, we feel a more rational approach (more economical, more likelihood of success) is to cross-train software engineers to support biologists in their use of software (see the grid later for the ways in which software is used in scientific settings). This would be a 'tweak' or specialization for a software engineer from their core competencies, and could be done as part of a career progression for talented engineers (given the undisputed - but not unmatched or unique - complexity of the field).
+* Cross-training a biologist into software engineering is much less economical as it requires a biologist to take on the entire core competency of software engineering, with the lead-time that this involves.
+* Address the problems above requires a clear recognition of diverse roles and needs within a bio-informatic organisation, and commensurate resource planning that should include bio-informatic engineers
+
+## Bio-Informatics Engineering
+* Venn Diagrams showing proposed roles.
+* Description of the overlap/interface between the roles
+
+
+## Differences and Similarities Between Scientific and Commercial Software Projects
+
+The grid
+
+# Conclusion
