@@ -42,7 +42,8 @@ Difficulty in productizing, or even openly sharing, promising software solutions
 # Programming vs Software Engineering
 
 ## Description of Software Engineering Values  
-![Categories of Software Engineering Values](./images/ProcessPyramid.jpeg)
+With respect to the following diagram:
+![Categories of Software Engineering Values](./images/ProcessPyramid.jpeg =100x100)
 
 ## Results of Survey
 
