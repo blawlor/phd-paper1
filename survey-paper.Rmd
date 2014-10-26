@@ -3,22 +3,24 @@ title: "A Review of Software Engineering Values in Bio-informatic Contexts"
 author: "Brendan Lawlor, Paul Walsh"
 date: "Saturday, October 11, 2014"
 output: pdf_document
-abstract: In this paper we consider the recognised problem of a lack of software engineering skills in bio-informatic contexts and discuss the consequences of this lack. We examine existing explanations and remedies to the problem, point out their shortcomings, and propose alternatives. Previous analyses of the problem have tended to treat the use of software in scientific contexts as categorically different from the general application of software engineering in other settings (for example, commercially). In contrast, we describe it as a specialization of that discipline, and examine how it is practiced. Specifically, we highlight the difference between programming and software engineering, list elements of the latter and present the results of a survey of bio-informatic practicioners which quantifies the extent to which those elements are employed in bio-informatics. In the light of the results we identify the role of the bio-informatic engineer - which is unaccounted for in the literature - and propose an educational emphasis on cross-training experienced software engineers into this role.  
+bibliography: bibliography.bib
+csl: brendan-custom.csl
+abstract: In this paper we consider the recognized problem of a lack of software engineering skills in bio-informatic contexts and discuss the consequences of this lack. We examine existing explanations and remedies to the problem, point out their shortcomings, and propose alternatives. Previous analyses of the problem have tended to treat the use of software in scientific contexts as categorically different from the general application of software engineering in other settings (for example, commercially). In contrast, we describe it as a specialization of that discipline, and examine how it is practiced. Specifically, we highlight the difference between programming and software engineering, list elements of the latter and present the results of a survey of bio-informatic practitioners which quantifies the extent to which those elements are employed in bio-informatics. In the light of the results we identify the role of the bio-informatic engineer - which is unaccounted for in the literature - and propose an educational emphasis on cross-training experienced software engineers into this role.  
 ---
 
   
 # Outline of the Problem
-* With reference to the literature, we bring attention to the lack of software engineering skills in bio-informatics.
+It has been noted by a number of authors that there is a deficit in software engineering skills within the scientific community in general and the bio-informatic community in particular [@verma2013lack]. The nature of the problem has been described in detail elsewhere but we outline it here again. Although scientists, including cross-disciplinary practitioners, typically possess programming skills and use those skills regularly as part of their work, the way in which software is written in these contexts tends to be ad hoc, unstructured and not in conformity with modern standards of software engineering. This deficit shows up in the software designs employed - undoubtedly rendering programs much less efficient than they might otherwise be[]. It also hinders the reproducibility of results attained by software due to an inability of peers to access, build and/or run the program's source code, or to access the orginal data.
 
 # Consequences of the Problem
-We divide the bio-informatic use of software into academic and practical, while acknowledging that individual bio-informaticians typically work in both contexts. 
+In order to look more deeply into the consequences of this engineering gap, we first looks at the different bio-informatic uses of software, and examine each case singly. We can divide software development in bio-informatics into two overall contexts: Academic and Practical. Insodoing we are acknowledge that individual bio-informaticians typically work in both contexts. 
 
-Academic bio-informaticians use software development as part of their research and publications. Scripting and high-level programming languages are often used to probe data and informally test hypostheses. R, Matlab and similar development platforms are used to clean, analyse and present data. 
+Academic bio-informaticians use software development to support their publications. Scripting and high-level programming languages are often used to clean and probe data and informally test hypotheses. R, Matlab and similar development platforms are used to clean, analyse and present data. When 
 
-Bio-informatic practicioners will develop basic tools or larger systems to support longer-term projects and goals within particular organisations or across the scientific community.
+Bio-informatic practitioners will develop basic tools or larger systems to support longer-term projects and goals within particular organisations or across the scientific community.
 
 ## Consequences of the Problem for Bio-Informatic Academics
-Lack of s/w engineering values means that many (most?) publications that treat data informatically cannot make that software or data available in a reproducible way for peer review. As a consequence, a larger percentage of findings will be reversed or withdrawn from publication when compared to other fields. (Reproduceability) 
+Lack of s/w engineering values means that many (most?) publications that treat data informatically cannot make that software or data available in a reproducible way for peer review. As a consequence, a larger percentage of findings will be reversed or withdrawn from publication when compared to other fields. (Reproducibility) 
 
 Lack of software testing = same as above.(Testing) 
 
@@ -28,7 +30,7 @@ Inability to perform desirable cross-check due to inability to scale algorithms 
 
 ## Consequences of the Problem for Bio-Informatic Practicioners
 
-Difficulty in productizing, or even openly sharing, promising software solutions. (Scalability)(Reproducability)(Modularization)
+Difficulty in productizing, or even openly sharing, promising software solutions. (Scalability)(Reproducibility)(Modularization)
 
 
 # Existing Explanations and Remedies from the Literature
@@ -45,7 +47,7 @@ Difficulty in productizing, or even openly sharing, promising software solutions
 
 # Programming vs Software Engineering
 
-The ability to program is not the same as the abilty to engineer a software solution. Programming is a subset of the discipline of software engineering in the same way that draftsmanship is a subset of the skills required for architecture. This uncontroversial fact is under-appreciated in scientific settings, for reasons about which we can only speculate. In this section, we give an overview of some of the primary tools, techniques and skills of software engineering, and present the results of a survery which seeks to quantify the prevalence of these software engineering elements in bio-informatic settings.
+The ability to program is not the same as the ability to engineer a software solution. Programming is a subset of the discipline of software engineering in the same way that draftsmanship is a subset of the skills required for architecture. This uncontroversial fact is under-appreciated in scientific settings, for reasons about which we can only speculate. In this section, we give an overview of some of the primary tools, techniques and skills of software engineering, and present the results of a survey which seeks to quantify the prevalence of these software engineering elements in bio-informatic settings.
 
 ## Description of Software Engineering Values  
 With respect to the following diagram:
@@ -64,11 +66,11 @@ img <- readPNG("./images/ProcessPyramid.png", TRUE)
 * Problems with current explanations and their remedies, with reference to the distinction between programming and software engineering. 
 * Universities produce computer scientists. Industry (and time) creates software engineers (apprenticeship).
 * The lack of software engineering values in bio-informatics is due to the lack of software _engineers_ in bio-informatics.
-* This should not, in our opinion, be addressed by trying to teach bio-informaticians how to become software engineers (in the same way that we don't expect bio-informaticians to learn how to build their own centrifuges and gas chromatograph spectrometers). In fact, we feel this approach is impossible to realise on a scale large enough to solve the problem across the bio-informatics community as a whole. 
+* This should not, in our opinion, be addressed by trying to teach bio-informaticians how to become software engineers (in the same way that we don't expect bio-informaticians to learn how to build their own centrifuges and gas chromatograph spectrometers). In fact, we feel this approach is impossible to realize on a scale large enough to solve the problem across the bio-informatics community as a whole. 
 
 
 # Alternative Explanations and Remedies
-A better appreciation of the formation and role of a software engineer leads to a different approach for integrating engineering values into a bio-informatic (or generally scientific) setting. While the current emphaisis is on cross training scientists to become better programmers, we feel a more rational approach (i.e. more economical, with more likelihood of success) is to cross-train software engineers to support biologists in their use of software (see the grid later for the ways in which software is used in scientific settings). This would be a 'tweak' or specialization for a software engineer from their core competencies, and could be done as part of a career progression for talented engineers (given the undisputed - but not unmatched or unique - complexity of the field).
+A better appreciation of the formation and role of a software engineer leads to a different approach for integrating engineering values into a bio-informatic (or generally scientific) setting. While the current emphasis is on cross training scientists to become better programmers, we feel a more rational approach (i.e. more economical, with more likelihood of success) is to cross-train software engineers to support biologists in their use of software (see the grid later for the ways in which software is used in scientific settings). This would be a 'tweak' or specialization for a software engineer from their core competencies, and could be done as part of a career progression for talented engineers (given the undisputed - but not unmatched or unique - complexity of the field).
 
 * Cross-training a biologist into software engineering is much less economical as it requires a biologist to take on the entire core competency of software engineering, with the lead-time that this involves.
 * Address the problems above requires a clear recognition of diverse roles and needs within a bio-informatic organisation, and commensurate resource planning that should include bio-informatic engineers
@@ -80,6 +82,8 @@ A better appreciation of the formation and role of a software engineer leads to 
 
 ## Differences and Similarities Between Scientific and Commercial Software Projects
 
-* The grid showing four quandrants: Academic/Practical vs Temporary/Permanent
+* The grid showing four quadrants: Academic/Practical vs Temporary/Permanent
 
 # Conclusion
+
+# References
