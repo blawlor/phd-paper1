@@ -28,7 +28,7 @@ Inability to perform desirable cross-check due to inability to scale algorithms 
 
 
 
-## Consequences of the Problem for Bio-Informatic Practicioners
+## Consequences of the Problem for Bio-Informatic Practitioners
 
 Difficulty in productizing, or even openly sharing, promising software solutions. (Scalability)(Reproducibility)(Modularization)
 
