@@ -104,7 +104,7 @@ img <- readPNG("./images/Bio-InformaticProjectRoles.png", TRUE)
 
 ## Differences and Similarities Between Scientific and Commercial Software Projects
 
-* The grid showing four quadrants: Academic/Practical vs Temporary/Permanent
+* The grid showing four quadrants: Core/Peripheral vs Temporary/Permanent
 
 ```{r fig.width=7, fig.height=7, echo=FALSE, warning=FALSE}
 library(png)
