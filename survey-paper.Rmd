@@ -1,7 +1,7 @@
 ---
 title: "A Review of Software Engineering Values in Bio-informatic Contexts"
 author: "Brendan Lawlor, Paul Walsh"
-date: "Saturday, October 11, 2014"
+date: "Saturday, October 27, 2014"
 output: pdf_document
 bibliography: bibliography.bib
 csl: brendan-custom.csl
