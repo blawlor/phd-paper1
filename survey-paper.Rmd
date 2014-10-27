@@ -5,7 +5,19 @@ date: "Saturday, October 11, 2014"
 output: pdf_document
 bibliography: bibliography.bib
 csl: brendan-custom.csl
-abstract: In this paper we consider the recognized problem of a lack of software engineering skills in bio-informatic contexts and discuss the consequences of this lack. We examine existing explanations and remedies to the problem, point out their shortcomings, and propose alternatives. Previous analyses of the problem have tended to treat the use of software in scientific contexts as categorically different from the general application of software engineering in other settings (for example, commercially). In contrast, we describe it as a specialization of that discipline, and examine how it is practiced. Specifically, we highlight the difference between programming and software engineering, list elements of the latter and present the results of a survey of bio-informatic practitioners which quantifies the extent to which those elements are employed in bio-informatics. In the light of the results we identify the role of the bio-informatic engineer - which is unaccounted for in the literature - and propose an educational emphasis on cross-training experienced software engineers into this role.  
+abstract: In this paper we consider the recognized problem of a lack of software engineering
+  skills in bio-informatic contexts and discuss the consequences of this lack. We
+  examine existing explanations and remedies to the problem, point out their shortcomings,
+  and propose alternatives. Previous analyses of the problem have tended to treat
+  the use of software in scientific contexts as categorically different from the general
+  application of software engineering in other settings (for example, commercially).
+  In contrast, we describe it as a specialization of that discipline, and examine
+  how it is practiced. Specifically, we highlight the difference between programming
+  and software engineering, list elements of the latter and present the results of
+  a survey of bio-informatic practitioners which quantifies the extent to which those
+  elements are employed in bio-informatics. In the light of the results we identify
+  the role of the bio-informatic engineer - which is unaccounted for in the literature
+  - and propose an educational emphasis on cross-training experienced software engineers
 ---
 
   
@@ -51,12 +63,15 @@ The ability to program is not the same as the ability to engineer a software sol
 
 ## Description of Software Engineering Values  
 With respect to the following diagram:
-```{r fig.width=6, fig.height=10, echo=FALSE, warning=FALSE}
+
+
+```{r fig.width=7.5, fig.height=7, echo=FALSE, warning=FALSE}
 library(png)
 library(grid)
 img <- readPNG("./images/ProcessPyramid.png", TRUE)
  grid.raster(img)
 ```
+
 
 ## Description of Survey
 
@@ -77,12 +92,27 @@ A better appreciation of the formation and role of a software engineer leads to 
 
 ## Bio-Informatics Engineering
 * Venn Diagrams showing proposed roles.
+ 
+```{r fig.width=6, fig.height=4.5, echo=FALSE, warning=FALSE}
+library(png)
+library(grid)
+img <- readPNG("./images/Bio-InformaticProjectRoles.png", TRUE)
+ grid.raster(img)
+```
+
 * Description of the overlap/interface between the roles
 
 
 ## Differences and Similarities Between Scientific and Commercial Software Projects
 
 * The grid showing four quadrants: Academic/Practical vs Temporary/Permanent
+
+```{r fig.width=7, fig.height=7, echo=FALSE, warning=FALSE}
+library(png)
+library(grid)
+img <- readPNG("./images/ScientificSoftwareUseScenarios.png", TRUE)
+ grid.raster(img)
+```
 
 # Conclusion
 
