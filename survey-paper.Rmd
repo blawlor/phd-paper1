@@ -32,7 +32,7 @@ The core use of software development in bio-informatics is as an instrument of r
 Peripheral to this activity are all the support functions that software plays in the bio-informatic context: the development of basic tools or larger systems and products which to support projects and goals within single organisations or across the scientific community.
 
 ## Consequences of the Problem for Core Bio-Informatic Activities
-Lack of s/w engineering values means that many (most?) publications that treat data informatically cannot make that software or data available in a reproducible way for peer review. As a consequence, a larger percentage of findings will be reversed or withdrawn from publication when compared to other fields. (Reproducibility) 
+Lack of s/w engineering values means that many (most?) publications that treat data informatically cannot make that software or data available in a reproducible way for peer review. As a consequence, a larger percentage of findings will be reversed or withdrawn from publication when compared to other fields. (Reproducibility) Note: Here we can make reference to the Ioannidsi paper by way of saying how a deficit in software development skills can lead to the same problem as the deficit in statistical skills [@ioannidis2005most]
 
 Lack of software testing = same as above.(Testing) 
 
