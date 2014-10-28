@@ -22,27 +22,30 @@ abstract: In this paper we consider the recognized problem of a lack of software
 
   
 # Outline of the Problem
-It has been noted by a number of authors that there is a deficit in software engineering skills within the scientific community in general and the bio-informatic community in particular [@verma2013lack; @baxter2006scientific]. The nature of the problem has been described in detail elsewhere but we outline it here again. Although scientists, including cross-disciplinary practitioners, typically possess programming skills and use those skills regularly as part of their work, the way in which software is written in these contexts tends to be ad hoc, unstructured and not in conformity with modern standards of software engineering. This deficit shows up in the software designs employed - undoubtedly rendering programs much less efficient than they might otherwise be[]. It also hinders the reproducibility of results attained by software due to an inability of peers to access, build and/or run the program's source code, or to access the orginal data.
+It has been noted by a number of authors that there is a deficit in software engineering skills within the scientific community in general and the bio-informatic community in particular [@verma2013lack; @baxter2006scientific]. The nature of the problem has been described in detail elsewhere but we outline it here again. Although scientists, and especially cross-disciplinary practitioners, typically possess programming skills and use those skills regularly as part of their work, the way in which software is written in these contexts tends to be ad hoc, unstructured and not in conformity with modern standards of software engineering. This deficit shows up in the software designs employed - undoubtedly rendering programs much less efficient than they might otherwise be[]. It also hinders the reproducibility of published results attained by software, due to an inability of peers to access, build and/or run the underlying source code, or to access the orginal data.
 
 # Consequences of the Problem
-In order to look more deeply into the consequences of this engineering gap, we first divide bio-informatics software development into two overall types: Core and Peripheral. 
+In order to look more deeply into the consequences of this engineering gap, we first divide bio-informatics software development activities into two overall types: Core and Peripheral. 
 
-The core use of software development in bio-informatics is as an instrument of research, taking its place as the "third approach" alongside theory and experiment[@prabhu2011survey]. Scripting and high-level programming languages are used to probe data and informally test hypotheses[]. R, Matlab and similar development platforms are used to clean, analyse and present data[].
+The core use of software development in bio-informatics is as an instrument of research, taking its place as the "third approach" alongside theory and experiment[@prabhu2011survey] in answering scientific questions. According to one study, 35% of a scientist's time is spent developing software[@prabhu2011survey, p. 4]. Scripting and high-level programming languages are used to probe data and informally test hypotheses[]. R, Matlab and similar development platforms are used to clean, analyse and present data[]. 
 
-Peripheral to this activity are all the support functions that software plays in the bio-informatic context: the development of basic tools or larger systems and products which to support projects and goals within single organisations or across the scientific community.
+Peripheral to this activity, but in support of it, is the development of basic tools or larger applications, which support projects and goals within single organisations or across the scientific community.
 
 ## Consequences of the Problem for Core Bio-Informatic Activities
-Lack of s/w engineering values means that many (most?) publications that treat data informatically cannot make that software or data available in a reproducible way for peer review. As a consequence, a larger percentage of findings will be reversed or withdrawn from publication when compared to other fields. (Reproducibility) Note: Here we can make reference to the Ioannidsi paper by way of saying how a deficit in software development skills can lead to the same problem as the deficit in statistical skills [@ioannidis2005most]
+*Inability to Reproduce Findings*: Lack of software engineering infrastructure and techniques means that many publications which process data informatically cannot make that software or data available in a reproducible way for peer review[]. As a consequence, a significant percentage of findings is likely to be reversed or withdrawn from publication. The use of infrastructure such as source code control and build tools would improve the situation, but they are either unknown or simply considered unnecessary for small teams by bio-informatic researchers. 
 
-Lack of software testing = same as above.(Testing) 
+*Unreliability of Findings*: All surveys on scientific software development we have read cite a lack of software testing as being a constant theme of scientfic development. Segal[@segal2007some] points out that the "lack of any disciplined testing procedure" is a characteristic of any development practice where the end user is also the developer. <More citations on testing>
 
-Inability to perform desirable cross-check due to inability to scale algorithms which, by their nature, tend to grow exponentially.(Scalability) 
+*Limitations in Data Sample Size*: Many scientists run their software on desktops, despite the availability of clusters [] and this is most likely due to a lack of familiarity with software designs for parallel execution of tasks, or with alternative algorithmic approaches which would give better performance. The contraints that this practice inevitably imposes on sample size or sophistication of data analysis are clear. In order to ensure execution to completion of programs on desktops, albeit in a timeframe of hours and days, scientists will reduce the number of sample points used, or eliminate steps which might be useful but which have exponential performance profiles.
+
+In all of the above cases, we can discern a parallel to the argument made by Ioannidis[@ioannidis2005most] with respect to inexpert use of statistics in studies to  arrive at findings. The danger to progress in bio-informatics is that much research may be found to be invalid due to inexpert development of software.
 
 
 ## Consequences of the Problem for Peripheral Bio-Informatic Activities
 
-Difficulty in productizing, or even openly sharing, promising software solutions. (Scalability) (Reproducibility) (Modularization)
+Difficulty in productizing, or even openly sharing, promising software solutions. (Scalability) (Reproducibility) (Maintainability)
 
+<Here the discussion can be divided into two sections: inefficient progress due to re-inventing the wheel, and unreliable/buggy products being used in e.g. Healthcare settings.>
 
 # Existing Explanations and Remedies from the Literature
 ## Explanations
