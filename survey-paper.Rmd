@@ -27,7 +27,7 @@ It has been noted by a number of authors that there is a deficit in software eng
 # Consequences of the Problem
 In order to look more deeply into the consequences of this engineering gap, we first divide bio-informatics software development activities into two overall types: Core and Peripheral. 
 
-The core use of software development in bio-informatics is as an instrument of research, taking its place as the "third approach" alongside theory and experiment[@prabhu2011survey] in answering scientific questions. According to one study, 35% of a scientist's time is spent developing software[@prabhu2011survey, p. 4]. Scripting and high-level programming languages are used to probe data and informally test hypotheses[]. R, Matlab and similar development platforms are used to clean, analyse and present data[]. 
+The core use of software development in bio-informatics is as an instrument of research, taking its place as the "third approach" alongside theory and experiment[@prabhu2011survey] in answering scientific questions. According to one study, 35% of a scientist's time is spent developing software[@prabhu2011survey]. Scripting and high-level programming languages are used to probe data and informally test hypotheses[]. R, Matlab and similar development platforms are used to clean, analyse and present data[]. 
 
 Peripheral to this activity, but in support of it, is the development of basic tools or larger applications, which support projects and goals within single organisations or across the scientific community.
 
@@ -36,16 +36,20 @@ Peripheral to this activity, but in support of it, is the development of basic t
 
 *Unreliability of Findings*: All surveys on scientific software development we have read cite a lack of software testing as being a constant theme of scientfic development. Segal[@segal2007some] points out that the "lack of any disciplined testing procedure" is a characteristic of any development practice where the end user is also the developer. <More citations on testing>
 
-*Limitations in Data Sample Size*: Many scientists run their software on desktops, despite the availability of clusters [] and this is most likely due to a lack of familiarity with software designs for parallel execution of tasks, or with alternative algorithmic approaches which would give better performance. The contraints that this practice inevitably imposes on sample size or sophistication of data analysis are clear. In order to ensure execution to completion of programs on desktops, albeit in a timeframe of hours and days, scientists will reduce the number of sample points used, or eliminate steps which might be useful but which have exponential performance profiles.
+*Limitations in Data Sample Size*: Many scientists run their software on desktops, despite the availability of clusters [] and this is most likely due to a lack of familiarity with software designs for parallel execution of tasks, or with alternative algorithmic approaches which would give better performance. The contraints that this practice inevitably imposes on sample size or sophistication of data analysis are clear. In order to ensure execution to completion of programs on desktops, albeit in a timeframe of hours and days[@prabhu2011survey], scientists will reduce the number of sample points used, or eliminate steps which might be useful but which have exponential performance profiles.
 
-In all of the above cases, we can discern a parallel to the argument made by Ioannidis[@ioannidis2005most] with respect to inexpert use of statistics in studies to  arrive at findings. The danger to progress in bio-informatics is that much research may be found to be invalid due to inexpert development of software.
-
+In all of the above cases, we can discern a parallel to the argument made by Ioannidis[@ioannidis2005most] with respect to inexpert use of statistics in studies. The danger to progress in bio-informatics is that much research may later be found to be invalid due to inexpert development of software.
 
 ## Consequences of the Problem for Peripheral Bio-Informatic Activities
 
+*Reinventing the wheel*: According to Prabhu et al. [@prabhu2011survey] "a considerable portion of [scientists'] time is spent in many tedious [software development] activities" such as converting data formats or retro-fitting inherited software to work for new conditions. This lost time can be seen as a consequence of the absence of software engineering infrastucture and practices around the research team. Researchers are obliged to repeatedly cobble together solutions for every new direction they take. Naturally the quality of these improvised solutions does not facilitate their reuse, and the problem perpetuates itself. Two qualities are needed in a software system to allow it to be reused
+
+*Under-Performing Toolsets*: As already stated, the 
 Difficulty in productizing, or even openly sharing, promising software solutions. (Scalability) (Reproducibility) (Maintainability)
 
 <Here the discussion can be divided into two sections: inefficient progress due to re-inventing the wheel, and unreliable/buggy products being used in e.g. Healthcare settings.>
+
+<What do these consequences boil down to? Lack of engineering values leads to a reduction in certain important properties of the software written, chiefly Reproducibility, Maintainability, Modularity, Scalability and Testability. But where should we unveil that?>
 
 # Existing Explanations and Remedies from the Literature
 ## Explanations
@@ -81,13 +85,15 @@ img <- readPNG("./images/ProcessPyramid.png", TRUE)
 
 # Shortcomings of Existing Explanations and Remedies
 * Problems with current explanations and their remedies, with reference to the distinction between programming and software engineering. 
-* Universities produce computer scientists. Industry (and time) creates software engineers (apprenticeship).
-* The lack of software engineering values in bio-informatics is due to the lack of software _engineers_ in bio-informatics.
+* Universities produce computer scientists. Industry (and time) creates software engineers (apprenticeship). There is a time-honoured and thorny argument about whether software engineering is a science or a craft. Emminent figures like EW Dijkstra have offered balanced views on the matter [@dijkstra1982selected] and it is widely recognized that there is an element of apprenticeship in the education of a software engineer. So much so that some authors have investigated ways to simulate this kind of apprenticeship in computer science curricula[@surendran2002simulating]. 
+* The lack of software engineering values in bio-informatics is due to the lack of software engineers in bio-informatics.
 * This should not, in our opinion, be addressed by trying to teach bio-informaticians how to become software engineers (in the same way that we don't expect bio-informaticians to learn how to build their own centrifuges and gas chromatograph spectrometers). In fact, we feel this approach is impossible to realize on a scale large enough to solve the problem across the bio-informatics community as a whole. 
 
 
 # Alternative Explanations and Remedies
 A better appreciation of the formation and role of a software engineer leads to a different approach for integrating engineering values into a bio-informatic (or generally scientific) setting. While the current emphasis is on cross training scientists to become better programmers, we feel a more rational approach (i.e. more economical, with more likelihood of success) is to cross-train software engineers to support biologists in their use of software (see the grid later for the ways in which software is used in scientific settings). This would be a 'tweak' or specialization for a software engineer from their core competencies, and could be done as part of a career progression for talented engineers (given the undisputed - but not unmatched or unique - complexity of the field).
+
+* A 2010 survery by Nguyen-Huan et al. [@nguyen2010survey] found that most scientists worked "either alone or in a small team of developers" and this too...<maybe better to mention this under reasons for the problem, rather than consequences>
 
 * Cross-training a biologist into software engineering is much less economical as it requires a biologist to take on the entire core competency of software engineering, with the lead-time that this involves.
 * Address the problems above requires a clear recognition of diverse roles and needs within a bio-informatic organisation, and commensurate resource planning that should include bio-informatic engineers
