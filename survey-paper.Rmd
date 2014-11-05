@@ -31,7 +31,7 @@ The core use of software development in bio-informatics is as an instrument of r
 
 Peripheral to this activity, but in support of it, is the development of basic tools or larger applications, which support projects and goals within single organisations or across the scientific community.
 
-<Reconsider breaking up into these sections. It is not very intuitive and worse, it's creating repetation.>
+<Reconsider breaking up into these sections. It is not very intuitive and worse, it's creating repetition.>
 
 ## Consequences of the Problem for Core Bio-Informatic Activities
 *Inability to Reproduce Findings*: A lack of software engineering infrastructure and techniques means that many publications which process data informatically cannot make that software or data available in a reproducible way for peer review[]. As a consequence, a significant percentage of findings is likely to be reversed or withdrawn from publication. The use of infrastructure such as source code control systems and command-line build tools would improve the situation, but they are either unknown or simply considered unnecessary for small teams by bio-informatic researchers. 
@@ -42,7 +42,7 @@ Peripheral to this activity, but in support of it, is the development of basic t
 
 *Slowing the Discovery Cycle*: As with the previous point, there is another negative consequence for core bio-informatic activity due to poorly-performing software: Given that the process of scientific research is iterative, and a significant proportion of that iteration is taken up with waiting for programs to complete exectution, the entire process of research itself is held back.
 
-In all of the above cases, we can discern a parallel to the argument made by Ioannidis[@ioannidis2005most] with respect to inexpert use of statistics in studies. The danger to progress in bio-informatics is that much research may later be found to be invalid due to inexpert development of software.
+In all of the above cases, we can discern a parallel to the argument made by Ioannidis[@ioannidis2005most] with respect to inexpert use of statistics in studies. The danger to progress in bio-informatics is that much research may later be found to be invalid due to inexpert development of software. As  Verma et al. point out, "the end goal of creating accurate and reliable scientific software is no less critical [than with commercial software] since incorrect results would greatly compromise the validity of the discovery"[@verma2013lack]. 
 
 ## Consequences of the Problem for Peripheral Bio-Informatic Activities
 
@@ -56,14 +56,24 @@ In all of the above cases, we can discern a parallel to the argument made by Ioa
 In summary, the consequence to the field bio-informatics for its lack of software engineering skills is a combination of inefficiency in arriving at new scientific findings and unreliability of those findings when they are reached. By any account, these are significant problems. 
 
 # Existing Explanations and Remedies from the Literature
-## Explanations
 
-* Complexity (special pleading)
-* Volatility (special pleading)
-* Budget and Resources
-* End User (Scientist) as programmer
+A number of the authors we have reviewed offer explanations and remedies for the problems described above. Hannay et al. [@hannay2009scientists] identify a general lack of formal education and training and a reliance instead on informal learning from peers. Segal & Morris [@segal2008developing] emphasise the differences between scientific and commercial software development - a theme also covered by the previously mentioned authors. Umarji et al. [@umarji2009software] focus exclusively on the gaps in the education of bio-informatics software developers in software engineering principles. Verma et al. [@verma2013lack] cite a lack of requirements engineering in bio-informatic projects, as well as other factors that create the "unique situation for the field of software engineering" represented by bio-informatics.
 
-## Remedies
+<Talk about education here> 
+
+A great deal of space is given to the differences between scientific and commercial development, the implication being that the tools and techniques used in commerical software engineering contexts cannot be applied in scientific settings. Authors have suggested that the two contexts are "fundamentally different" for reasons of subject domain complexity, requirements volitility and budgetary constraints. These differences make it problematic to "impose software engineering techniques on scientists"[@segal2008developing]. 
+
+*Subject Domain Complexity*: Segal & Morris assert that in the case of scientific software development the subject matter is simply too complex for the "average developer". In a similar vein, Hannay suggests that "developers are much less likely to need to be domain experts" in "regular" software development compared to scientific. 
+
+*Requirements Volatility*: According to Segal & Morris, "full up-front requirement specifications are impossible" where scientists are concerned, and that requirements rather "emerge" on an ongoing basis. This is offered as a distinctive feature of scientific programming. 
+
+*Budget and Resources*: Verma et al. cite tighter budget and timetable contraints as a differenciating factor of bio-informatic software development, and therefore as one possible cause of a lack of software engineering best practices. 
+
+*End User (Scientist) as Developer*: A number of authors point out cultural differences between scientists and software engineers as an important issue. Segal & Morris suggest that due to the subject domain complexity already mentioned, developers are likely to be the end-user scientists. But as Verma et al. point out, biologist stakeholders - who are the primary stakeholders in these settings - "may be more inclined to sacrifice program structure to get something that works".
+
+
+The remedies suggested in the literature can be categorized into one of two types
+
 * Education
 * Methodologies
 
@@ -94,9 +104,14 @@ img <- readPNG("./images/ProcessPyramid.png", TRUE)
 # Shortcomings of Existing Explanations and Remedies
 * Problems with current explanations and their remedies, with reference to the distinction between programming and software engineering. 
 * Universities produce computer scientists. Industry (and time) creates software engineers (apprenticeship). There is a time-honoured and thorny argument about whether software engineering is a science or a craft. Emminent figures like EW Dijkstra have offered balanced views on the matter [@dijkstra1982selected] and it is widely recognized that there is an element of apprenticeship in the education of a software engineer. So much so that some authors have investigated ways to simulate this kind of apprenticeship in computer science curricula[@surendran2002simulating]. 
-* The lack of software engineering values in bio-informatics is due to the lack of software engineers in bio-informatics.
+* The lack of software engineering values in bio-informatics is due to the lack of software engineers in bio-informatics. Although Segal & Morris cite the end-user-as-developer as a consequence of the fact that the domain is too complicated for non-biologists, whereas we are more inclined to think that it is a cause rather than a consequence of the lack of software engineering practices. 
+
 * This should not, in our opinion, be addressed by trying to teach bio-informaticians how to become software engineers (in the same way that we don't expect bio-informaticians to learn how to build their own centrifuges and gas chromatograph spectrometers). In fact, we feel this approach is impossible to realize on a scale large enough to solve the problem across the bio-informatics community as a whole. 
 * segal&morris: "Other field studies have demonstrated that efforts to impose software engineering techniques on scientists are beset with problems"
+
+* From Hannay: "Scientific software is also often explorative" - suggests misunderstanding of the nature of development, which is also explorative.
+
+* Software Engineers tend to acquire one or more 'verticals'. When they leave university they have no more feeling for the complexity of a payroll package than they have for a polymarase chain reaction.
 
 # Alternative Explanations and Remedies
 A better appreciation of the formation and role of a software engineer leads to a different approach for integrating engineering values into a bio-informatic (or generally scientific) setting. While the current emphasis is on cross training scientists to become better programmers, we feel a more rational approach (i.e. more economical, with more likelihood of success) is to cross-train software engineers to support biologists in their use of software (see the grid later for the ways in which software is used in scientific settings). This would be a 'tweak' or specialization for a software engineer from their core competencies, and could be done as part of a career progression for talented engineers (given the undisputed - but not unmatched or unique - complexity of the field).
@@ -134,6 +149,7 @@ Quotable: "We believe that software is just another kind of experimental apparat
 
 * Put another way, the amount of new skills a software engineer needs to acquire to become useful to a biologist is a great deal less than the amount of new skills a biologist needs to learn in order to become useful (to the same extent) to himself.
 
+* We assert there is a level of domain knowledge attainable by software engineers that is _good enough_ to allow her to reliably translate scientific requirements into well-engineered software solutions. By contract, we do not envisage a similar _good enough_ level of software engineering which biologists or bio-informaticians would even _wish_ to attain. 
 
 # Conclusion
 
