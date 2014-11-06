@@ -5,13 +5,12 @@ date: "Saturday, October 27, 2014"
 output: pdf_document
 bibliography: bibliography.bib
 csl: brendan-custom.csl
-abstract: In this paper we consider the recognized problem of a lack of software engineering
+abstract: In this paper we consider the problem of a lack of software engineering
   skills in bio-informatic contexts and discuss the consequences of this lack. We
   examine existing explanations and remedies to the problem, point out their shortcomings,
   and propose alternatives. Previous analyses of the problem have tended to treat
   the use of software in scientific contexts as categorically different from the general
-  application of software engineering in other settings (for example, commercially).
-  In contrast, we describe it as a specialization of that discipline, and examine
+  application of software engineering in commercial settings. In contrast, we describe it as a specialization of that discipline, and examine 
   how it is practiced. Specifically, we highlight the difference between programming
   and software engineering, list elements of the latter and present the results of
   a survey of bio-informatic practitioners which quantifies the extent to which those
@@ -65,27 +64,32 @@ A great deal of space is given to the differences between scientific and commerc
 
 *Subject Domain Complexity*: Segal & Morris assert that in the case of scientific software development the subject matter is simply too complex for the "average developer". In a similar vein, Hannay suggests that "developers are much less likely to need to be domain experts" in "regular" software development compared to scientific. 
 
-*Requirements Volatility*: According to Segal & Morris, "full up-front requirement specifications are impossible" where scientists are concerned, and that requirements rather "emerge" on an ongoing basis. This is offered as a distinctive feature of scientific programming. 
+*Requirements Volatility*: According to Segal & Morris, "full up-front requirement specifications are impossible" where scientists are concerned, and that requirements rather "emerge" on an ongoing basis. The suggestion is that this is a distinctive feature of scientific programming, which makes the application of software engineering techniques more difficult.
 
 *Budget and Resources*: Verma et al. cite tighter budget and timetable contraints as a differenciating factor of bio-informatic software development, and therefore as one possible cause of a lack of software engineering best practices. 
 
 *End User (Scientist) as Developer*: A number of authors point out cultural differences between scientists and software engineers as an important issue. Segal & Morris suggest that due to the subject domain complexity already mentioned, developers are likely to be the end-user scientists. But as Verma et al. point out, biologist stakeholders - who are the primary stakeholders in these settings - "may be more inclined to sacrifice program structure to get something that works".
 
 
-The remedies suggested in the literature can be categorized into one of two types
+Given the above explanations, the remedies suggested in the literature can be categorized into one of two types. Firstly, many authors make suggestions about how to improve education among scientists and bio-informaticians so as to give an appreciation for software engineering practices. Secondly, some authors describe software development methodologies that would be better suited to bio-informatic or general scientific environments.
 
-* Education
-* Methodologies
+*Education:* Changes to the existing bio-informatic curricula to teach SE[@umarji2009software]
 
-Chiefly: hannay, segal&morris, verma, umarji?
+*Methodology:* [@verma2013lack]
+
+*Engineering Best Practices:* [@wilson2014best] Talk about the best practices that Wilson et al. describe, explain the difference between that education. 
+
+*Participatory Programming:* Is this just another way of saying collaboration? With end users who know how to program? If so, this is effectively saying - do it the normal way.
+
 
 # Programming vs Software Engineering
 
-The ability to program is not the same as the ability to engineer a software solution. Programming is a subset of the discipline of software engineering in the same way that draftsmanship is a subset of the skills required for architecture. This uncontroversial fact is under-appreciated in scientific settings, for reasons about which we can only speculate. In this section, we give an overview of some of the primary tools, techniques and skills of software engineering, and present the results of a survey which seeks to quantify the prevalence of these software engineering elements in bio-informatic settings.
+Before we examine the existing explanations and remedies for the software engineering deficit in bio-informatics, we make a brief aside: We outline the differences between programming and software engineering in order to prepare for later arguments that lean on these differences.
+
+The ability to program is not the same as the ability to engineer a software solution. Programming is a subset of the discipline of software engineering in the same way that draftsmanship is a subset of the skills required for architecture. This uncontroversial fact is under-appreciated in scientific settings, for reasons about which we can only speculate. In this section, we give an overview of some of the primary tools, techniques and skills of software engineering, and present the results of a survey which seeks to quantify the prevalence of these software engineering elements in bio-informatic settings. Our choice of which tools and techniques to emphasise are based on experience as practioners, and we find ourselves in full agreement with other authors such as Wilson et al. [@wilson2014best] with respect to those choices.
 
 ## Description of Software Engineering Values  
-With respect to the following diagram:
-
+The following diagram shows the essential elements of software engineering practice, and illustrates the dependencies between them. We categorize SE elements into the separate layers of Infrastructure, Processes and Practices, each layer building on the one below. 
 
 ```{r fig.width=7.5, fig.height=7, echo=FALSE, warning=FALSE}
 library(png)
