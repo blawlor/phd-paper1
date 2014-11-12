@@ -81,10 +81,10 @@ Naturally enough, the solutions proposed by these studies flow from the diagnose
 
 Before we examine the existing explanations and remedies for the software engineering deficit in bio-informatics, we make a brief aside: We outline the differences between programming and software engineering in order to prepare for later arguments that lean on these differences.
 
-The ability to program is not the same as the ability to engineer a software solution. Programming is a subset of the discipline of software engineering in the same way that draftsmanship is a subset of the skills required for architecture. This uncontroversial fact is under-appreciated in scientific settings, for reasons about which we can only speculate. In this section, we give an overview of some of the primary tools, techniques and skills of software engineering, and present the results of a survey which seeks to quantify the prevalence of these software engineering elements in bio-informatic settings. Our choice of which tools and techniques to emphasise are based on experience as practioners, and we find ourselves in full agreement with other authors such as Wilson et al. [@wilson2014best] with respect to those choices.
+The ability to program is not the same as the ability to engineer a software solution. Programming is a subset of the discipline of software engineering in the same way that draftsmanship is a subset of the skills required for architecture. This uncontroversial fact is under-appreciated in scientific settings, for reasons about which we might only speculate. In this section, we give an overview of some of the primary tools, techniques and skills of software engineering, and present the results of a survey which seeks to quantify the prevalence of these software engineering elements in bio-informatic settings. Our choice of which tools and techniques to emphasise are based on experience as practioners, and we find ourselves in full agreement with other authors such as Wilson et al. [@wilson2014best] with respect to those choices.
 
 ## Description of Software Engineering Values  
-The following diagram shows the essential elements of software engineering practice, and illustrates the dependencies between them. We categorize SE elements into the separate layers of Infrastructure, Processes and Practices, each layer building on the one below. 
+The following diagram shows the essential elements of software engineering practice, and illustrates the dependencies between them. We categorize SE elements into the separate layers of Infrastructure, Processes and Practices, each layer building on the one below. The elements correspond closely with those identified by Wilson et al. [wilson2014best] in a paper that recommends best practice for software engineering in scientific settings.
 
 ```{r fig.width=7.5, fig.height=7, echo=FALSE, warning=FALSE}
 library(png)
@@ -93,65 +93,17 @@ img <- readPNG("./images/ProcessPyramid.png", TRUE)
  grid.raster(img)
 ```
 
+The basis of good practice lies in the correct choice of tools and infrastructure. Of course a software engineer chooses the tools based on the practices that she wishes to encourage, but their presence in a development environment is like a genetic marker that accompanies good engineering standards. Similarly for the other layers that build upon that infrastructure. With this in mind, we designed a survey to measure the prevalence of these 'markers' in bio-informatic research teams. 
+
+<describe the survey and its results>
 
 
+The results of our survey confirm that there is a deficit in bio-informatic software engineering, and we turn our attention now to what its causes and remedies might be, beyond what has already been discussed in the reviewed literature. We believe that in order to address this deficit effectively, it is necessary to understand the difference between software development and software engineering, hence the discussion earlier. We assert that it is impractical, if not impossible, to introduce the necessary levels of software engineering expertise into bio-informatics by treating it as a sub-component of bio-informatics. It requires too large a body of knowledge, and it is attained by too different a form of education to simply be bolted on to existing bio-informatic curricula. Put another way, we believe that the most effective way of introducing software engineering values into bio-informatic research is to introduce software engineers themselves.
 
-*Education:* Changes to the existing bio-informatic curricula to teach SE[@umarji2009software]
+The earlier discussion on the difference between software engineering and programming underlines what we believe to be the limitations of solutions based in education and methodologies which do not 
 
-*Methodology:* [@verma2013lack]
+While improvements in bio-informatic curricula, as suggested by Umarji et al. [@umarji2009software] would be a positive step, it is not suffi
 
-*Engineering Best Practices:* [@wilson2014best] Talk about the best practices that Wilson et al. describe, explain the difference between that education. 
-
-*Participatory Programming:* Is this just another way of saying collaboration? With end users who know how to program? If so, this is effectively saying - do it the normal way.
-
-
-
-
-The core use of software development in bio-informatics is as an instrument of research, taking its place as the "third approach" alongside theory and experiment[@prabhu2011survey] in answering scientific questions. Scripting and high-level programming languages are used to probe data and informally test hypotheses[]. R, Matlab and similar development platforms are used to clean, analyse and present data[]. 
-
-Peripheral to this activity, but in support of it, is the development of basic tools or larger applications, which support projects and goals within single organisations or across the scientific community.
-
-<Reconsider breaking up into these sections. It is not very intuitive and worse, it's creating repetition.>
-
-## Consequences of the Problem for Core Bio-Informatic Activities
-
-
-
-
-
-
-## Consequences of the Problem for Peripheral Bio-Informatic Activities
-
-
-
-*Under-Performing Tools and Products*: The lack of familiarity with software designs for parallel programming, as well as the structured analysis of performance, naturally affect the tools, utilities and products created as part of peripheral bio-informatics work. Such toolsets and products, when shared and used as part of core research efforts, naturally slow down that core research.
-
-*Under-tested Tools and Products*: In a manner parallel to the previous point on performances, the result of under-tested software created as part of ...
-
-
-
-
-# Existing Explanations and Remedies from the Literature
-
-
-
-<Talk about education here> 
-
-
-
-
-
-
-
-# Programming vs Software Engineering
-
-
-* List the desired features of an engineered solution: Maintainability, Scalability, Modularity, Reproducibility and Testability.
-
-
-## Description of Survey
-
-## Results of Survey
 
 # Shortcomings of Existing Explanations and Remedies
 * Problems with current explanations and their remedies, with reference to the distinction between programming and software engineering. 
@@ -208,15 +160,15 @@ Quotable: "We believe that software is just another kind of experimental apparat
 * We assert there is a level of domain knowledge attainable by software engineers that is _good enough_ to allow her to reliably translate scientific requirements into well-engineered software solutions. By contract, we do not envisage a similar _good enough_ level of software engineering which biologists or bio-informaticians would even _wish_ to attain. 
 
 # Conclusion
-Bio-informatics is still in the cradle, compared to many of its sibling sciences. In common with many other fields that combine computation, mathematics and statistics with the so-called hard sciences, a lot of thought and energy is going into the creation of truly cross-disciplinary practicioners. The goal is to combine in one brain (well, in many!) a rich knowledge of both biology and computation, given how answering the questions in one have become heavily dependent on mastering the skills of the other. 
+Bio-informatics is still in the cradle, compared to many of its sibling sciences. In common with many other fields that combine computation, mathematics and statistics with the so-called hard sciences, a lot of thought and energy is going into the creation of truly cross-disciplinary practicioners. The goal is to combine in one brain a rich knowledge of both biology and computation, because answering the questions in one has become heavily dependent on mastering the skills of the other. 
 
-While there is no doubt about the soundness of this ambition, we feel that a distinction must be made between computational skills and software engineering skills. More to the point, we feel that these skill sets are so diverse and mastered by such different methods, that it is unrealistic to expect a single practicioner to combine biology, computational methods and software engineering. In fact we feel it is unnecessary and wasteful to try. 
+While there is no doubt about the soundness of this ambition, we feel that a distinction must be made between computational skills and software engineering skills. More to the point, we feel that these skill sets are so diverse and mastered by such different methods, that it is unrealistic to expect a single practicioner to combine biology, computational methods and software engineering. Moreover, it is unnecessary and wasteful to try. 
 
-The alternative is already available to us. Software engineering is the discipline of applying computational skills to problems of other disciplines in such a way as to result in robust, reliable and maintainable solutions. While some fields of applications are more exacting than others there is *no qualitative difference* between commercial software engineering and scientfic software engineering. The extra degree of scientific complexity has parallels in commercial software development. The existing tools, techniques and practices of software engineers can bend to the particular needs of research. The only question that remains is how to reliably place those skills of modern software engineering at the disposal of bio-informatic researchers.
+The alternative is already available to us. Software engineering is a discipline in which we apply computational skills to problems of other disciplines in such a way as to result in robust, reliable and maintainable solutions. While some fields of applications are more exacting than others there is *no qualitative difference* between commercial software engineering and scientfic software engineering. The extra degree of scientific complexity has parallels in commercial software development. The existing tools, techniques and practices of software engineers can bend to the particular needs of research. The only question that remains is how to reliably place those skills of modern software engineering at the disposal of bio-informatic researchers.
 
-We argue for the explicit recognition of the role of the bioinformatic engineer, a software engineer who has been educated in the standard way and has specialized in the 'vertical' of systems biology (or perhaps even a sub-field such as genomics, or metabolomics). Such an individual would embody all the skills that one could expect from an expert software engineer (as called out above) but would also have a deep appreciation of the kinds of problems that biologists need to solve, and the manner in which they go about their research. In other words, we believe that the most effective way of introducing software engineering values into bio-informatic research is to introduce software engineers themselves.
+We argue for the explicit recognition of the role of the bioinformatic engineer, a software engineer who has been educated in the standard way for that discipline, and has specialized in the 'vertical' of systems biology (or perhaps even a sub-field such as genomics, or metabolomics). Such an individual would embody all the skills that one could expect from an expert software engineer (as called out above) but would also have a deep appreciation of the kinds of problems that biologists need to solve, and the manner in which they go about their research. In other words, we believe that the most effective way of introducing software engineering values into bio-informatic research is to introduce software engineers themselves.
 
-This does not in any sense remove with the need for the cross-disciplinary figure of the bio-informatician. On the contrary - it is essential to an effective collaboration between scientist and engineer that one have the skills and vocabulary to communicate needs to the other. The scientist will very often communicate with the engineer using source code as part of the message. As suggested by Wilson et al. it would be best if bio-informatician had a working knowledge of the basic tools of software engineering such as source control and unit tests. But the responsibility of identifying problems in design and code, fixing them, and shaping the output of the scientist into well-engineered solutions would lie with the bio-informatic engineer. We predict that this will substitute hours of drudgery for the scientist with hours of true productivity, and at the same time ensure performant, testable, maintainable and reusable code for the bio-informatic field at large.
+This does not in any sense remove with the need for the cross-disciplinary figure of the bio-informatician. On the contrary - it is essential to an effective collaboration between scientist and engineer that one have the skills and vocabulary to communicate needs to the other. The scientist will very often communicate with the engineer using source code as part of the message. As suggested by Wilson et al. it would be best if the bio-informatician had a working knowledge of the basic tools of software engineering such as source control and unit tests. But the responsibility of identifying problems in design and code, fixing them, and shaping the output of the scientist into well-engineered solutions would lie with the bio-informatic engineer. We predict that this will substitute hours of drudgery for the scientist with hours of true productivity, and at the same time ensure performant, testable, maintainable and reusable code for the bio-informatic field at large.
 
 The main obstacle to this solution is hinted at by []. They way in which research projects are funded does not currently take into account the costs associated with developing software. As we have suggested above, the reader can test the sanity of this attitude towards software by comparing it to the attention given to hardware. While not every project will be able to budget for a full-time bio-informatic engineer to work esclusively, research groups should be able to share such resources, or make use of specialized external software companies which would grow in number to meet this demand.
 
