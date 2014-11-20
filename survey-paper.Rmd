@@ -173,15 +173,6 @@ Once we know which category a particular piece of software belongs to, we can cr
 The other variable, Core/Peripheral, distinguishes between software that is used as part of the discovery process in a particular line of research, and code that could be considered 'utility code' to be reused in many different settings. The former should in principle be published along with the findings it helped to produce. The latter might find it's way into a commerical or opensource product to be shared with the wider bio-informatic community. In both cases, the need for a transformation from temporary to permanent is the same, but the engineering skills and processes that would be used to achieve it would differ - hence the distinction between them.
 
 
-## Differences and Similarities Between Scientific and Commercial Software Projects
-
-
-Quotable: "We believe that software is just another kind of experimental apparatus [3] and should be built, checked, and used as carefully as any physical apparatus" [@wilson2014best]
-
-* Put another way, the amount of new skills a software engineer needs to acquire to become useful to a biologist is a great deal less than the amount of new skills a biologist needs to learn in order to become useful (to the same extent) to himself.
-
-* We assert there is a level of domain knowledge attainable by software engineers that is _good enough_ to allow her to reliably translate scientific requirements into well-engineered software solutions. By contract, we do not envisage a similar _good enough_ level of software engineering which biologists or bio-informaticians would even _wish_ to attain. 
-
 # Conclusion
 Bio-informatics is still in the cradle, compared to many of its sibling sciences. In common with many other fields that combine computation, mathematics and statistics with the so-called hard sciences, a lot of thought and energy is going into the creation of truly cross-disciplinary practicioners. The goal is to combine in one brain a rich knowledge of both biology and computation, because answering the questions in one has become heavily dependent on mastering the skills of the other. 
 
