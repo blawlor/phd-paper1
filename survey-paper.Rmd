@@ -114,7 +114,7 @@ In one sense, the life sciences enjoy an important advantage over business: The 
 
 One feature of modern software development which can lever this relatively stable domain and facilitate communication between engineer and scientist is the Domain Specific Language (DSL)[]. As an alternative to a general purpose programming language, a DSL can provide a fluent interface between the problem domain of the biologist and the solution domain of the engineer. We consider the application of DSLs to bio-informatic software development as worthy of further research.
 
-The observation that scientific requirements are simply too fluid will bring a rum smile to the face of any experienced software engineer. The day-to-day reality of commercial projects is very different to the clean lines described in methodology literature. Percieved business needs always come first, often to the detriment of best practice. Part of the engineer's job is to incorporate unexpected and even capricious requirements inot the project while minimizing the damage done. 
+The observation that scientific requirements are simply too fluid will bring a rum smile to the face of any experienced software engineer. The day-to-day reality of commercial projects is very different to the clean lines described in methodology literature. Percieved business needs always come first, often to the detriment of best practice. Part of the engineer's job is to incorporate unexpected and even capricious requirements into the project while minimizing the damage done. 
 
 Budgets on commercial software projects are tight, as are the deadlines, and any experienced developer knows that there is a continuous cost/benefit calculation involved when making any significant technical decision. In this sense, commerical projects are no different to scientific research programs. What does differ is the budgeting process. Bio-informatic researchers need to allocate adequate resources for software development at the outset, but as one author has pointed out, scientists tend to underestimate the cost of software [].
 
@@ -141,8 +141,9 @@ A better appreciation of the education and role of a software engineer leads to 
 * Cross-training a biologist into software engineering is much less economical as it requires a biologist to take on the entire core competency of software engineering, with the lead-time that this involves.
 * Address the problems above requires a clear recognition of diverse roles and needs within a bio-informatic organisation, and commensurate resource planning that should include bio-informatic engineers
 
+
 ## Bio-Informatics Engineering
-* Venn Diagrams showing proposed roles.
+We have argued for the recognition of the separate role of Bio-Informatic Engineer in research teams. How would bio-informatic engineers and bio-informatic scientists communicate? Where would their competencies overlap? 
  
 ```{r fig.width=6, fig.height=4.5, echo=FALSE, warning=FALSE}
 library(png)
@@ -151,12 +152,11 @@ img <- readPNG("./images/Bio-InformaticProjectRoles.png", TRUE)
  grid.raster(img)
 ```
 
-* Description of the overlap/interface between the roles
+The intersection of the two sets in the above diagram show the role that education can play in the preparation of bio-informaticians and bio-informatic engineers. Engineers need to know enough about the biology domain to effectively communicate with bio-informaticians. Bio-informaticians already understand programming enough to communicate their needs through code.   
 
+The non-intersecting parts of the two sets demonstrate the need for the bio-informatic engineer in the first place. The field of software engineering is simply to large to incorporate into the skillset of bio-informatics. It is not core to what interests the bio-informatician and in any case is acquired to a large degree through practice rather than education. 
 
-## Differences and Similarities Between Scientific and Commercial Software Projects
-
-* The grid showing four quadrants: Core/Peripheral vs Temporary/Permanent
+This seems a reasonable map of core competencies in bio-informatic research teams. How would it operate in practice? The following diagram categorizes the kinds of software development that would typically take place in a research team into four quadrants, based on two variables: Whether the work is core or peripheral to the team's output, and whether the resulting software should be considered temporary or permanent.
 
 ```{r fig.width=7, fig.height=7, echo=FALSE, warning=FALSE}
 library(png)
@@ -164,10 +164,17 @@ library(grid)
 img <- readPNG("./images/ScientificSoftwareUseScenarios.png", TRUE)
  grid.raster(img)
 ```
-From Morris: "One concern is that scientific prototype code, if successful, segues
-into applications that are distributed for wider research use. Later
-it may be adopted for production purposes, sometimes even for
-safety critical use." (Use this to show that top left quadrant code should be disposed of or rewritten)
+
+To explain what we mean by these categories and variables, we refer to Morris' observation [@morris2008some] that "[o]ne concern is that scientific prototype code, if successful, segues into applications that are distributed for wider research use. Later it may be adopted for production purposes, sometimes even for
+safety critical use." In other words, it is important to allow bio-informaticians to create code that is exploratory in nature but fragile from an engineering point of view. But it is equally important to ensure that such code does not form the basis published findings or shared products and tools. We represent this fact with the variable that distinguishes between temporary and permanent software. 
+
+Once we know which category a particular piece of software belongs to, we can create procedures for moving it to a different category should the need arise. For example, according to Sanders and Kelly [@sanders2008dealing] some teams took a "do it twice" approach - that is, a rewrite of software according to more exacting engineering requirements. This corresponds to moving software from the upper half to the lower half of the the above diagram. So this is already practiced in some research teams. The point is to explictly recognize these categories and put processes in place to avoid the kind of error that Morris describes.
+
+The other variable, Core/Peripheral, distinguishes between software that is used as part of the discovery process in a particular line of research, and code that could be considered 'utility code' to be reused in many different settings. The former should in principle be published along with the findings it helped to produce. The latter might find it's way into a commerical or opensource product to be shared with the wider bio-informatic community. In both cases, the need for a transformation from temporary to permanent is the same, but the engineering skills and processes that would be used to achieve it would differ - hence the distinction between them.
+
+
+## Differences and Similarities Between Scientific and Commercial Software Projects
+
 
 Quotable: "We believe that software is just another kind of experimental apparatus [3] and should be built, checked, and used as carefully as any physical apparatus" [@wilson2014best]
 
@@ -184,12 +191,16 @@ The alternative is already available to us. Software engineering is a discipline
 
 We argue for the explicit recognition of the role of the bioinformatic engineer, a software engineer who has been educated in the standard way for that discipline, and has specialized in the 'vertical' of systems biology (or perhaps even a sub-field such as genomics, or metabolomics). Such an individual would embody all the skills that one could expect from an expert software engineer (as called out above) but would also have a deep appreciation of the kinds of problems that biologists need to solve, and the manner in which they go about their research. In other words, we believe that the most effective way of introducing software engineering values into bio-informatic research is to introduce software engineers themselves.
 
-This does not in any sense remove with the need for the cross-disciplinary figure of the bio-informatician. On the contrary - it is essential to an effective collaboration between scientist and engineer that one have the skills and vocabulary to communicate needs to the other. The scientist will very often communicate with the engineer using source code as part of the message. As suggested by Wilson et al. it would be best if the bio-informatician had a working knowledge of the basic tools of software engineering such as source control and unit tests. But the responsibility of identifying problems in design and code, fixing them, and shaping the output of the scientist into well-engineered solutions would lie with the bio-informatic engineer. We predict that this will substitute hours of drudgery for the scientist with hours of true productivity, and at the same time ensure performant, testable, maintainable and reusable code for the bio-informatic field at large.
+This does not in any sense remove the need for the cross-disciplinary figure of the bio-informatician. On the contrary - it is essential to an effective collaboration between bio-informatician and engineer that one have the skills and vocabulary to communicate needs to the other. The bio-informatician will very often communicate with the engineer using source code as part of the message. As suggested by Wilson et al. it would be best if the bio-informatician had a working knowledge of the basic tools of software engineering such as source control and unit tests. But the responsibility of identifying problems in design and code, fixing them, and shaping the output of research into well-engineered solutions would lie with the bio-informatic engineer. We predict that this will substitute hours of drudgery for the scientist with hours of true productivity, and at the same time ensure performant, testable, maintainable and reusable code for the bio-informatic field at large.
 
-The main obstacle to this solution is hinted at by []. They way in which research projects are funded does not currently take into account the costs associated with developing software. As we have suggested above, the reader can test the sanity of this attitude towards software by comparing it to the attention given to hardware. While not every project will be able to budget for a full-time bio-informatic engineer to work esclusively, research groups should be able to share such resources, or make use of specialized external software companies which would grow in number to meet this demand.
+The main obstacle to this solution is hinted at by []. The way in which research projects are funded does not currently take into account the costs associated with developing software. As we have suggested above, the reader can see the problem with this attitude towards software by comparing it to the attention given to hardware. While not every project will be able to budget for a full-time bio-informatic engineer to work esclusively, research groups should be able to share such resources, or make use of specialized external software companies which would grow in number to meet this demand.
 
+## Recommendations
 
-
-
+* Explicit recognition of the role of Bio-Informatic Engineer, along with a shared understanding of the compentencies and functions of that role.
+* The creation of specialist post-graduate curricula to allow software engineering graduates to specialize in bio-informatic engineering.
+* Research into Bio-Informatic Domain Specific Languages to facilitate collaboration between bio-informaticians and bio-informatic engineers.
+* Adequate funding for software engineering as part of bio-informatic research projects.
+* Measures to encourage the creation of bio-informatic engineering companies to service the needs of smaller research teams which cannot afford dedicated internal bio-informatic engineering staff.
 
 # References
