@@ -1,5 +1,5 @@
 ---
-title: "A Review of Software Engineering Values in Bioinformatics"
+title: "Engineering a Solution: A Review of Software Engineering Values in Bioinformatics"
 author: "Brendan Lawlor, Paul Walsh"
 date: "Cork Institute of Technology, Cork, Ireland"
 output: 
