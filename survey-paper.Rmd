@@ -170,4 +170,9 @@ The bioinformatic engineer does not in any sense remove the need for the cross-d
 * Adequate funding for software engineering as part of bioinformatic research projects.
 * Measures to encourage the creation of bioinformatic engineering companies to service the needs of smaller research teams which cannot afford dedicated internal bioinformatic engineering staff.
 
+The working systems biologist wants to apply software tools to increase the understanding of biological function without having to 'tinker under the hood'; how biological features translate into software code is too much detail for many researchers. [@swertz2007beyond]
+
+By providing notations tai- lored to the application domain, a DSL offers substantial gains in productivity and even enables end-user programming.[@kosar2008preliminary]
+
+
 # References
