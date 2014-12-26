@@ -86,8 +86,129 @@ img <- readPNG("./images/ProcessPyramid.png", TRUE)
 The basis of good practice lies in the correct choice of the *Tools and Infrastructure* indicated in the above figure. Of course a software engineer chooses the tools based on the practices that she wishes to encourage, but their presence in a development environment is like a genetic marker that accompanies good engineering standards. The layers representing automated *Processes* and experience-based *Practices* contain their own 'markers' which depend on those in the layers below: Even the most skilled and experienced engineer will be thwarted by an inadequate development environment. With this in mind, we designed a survey to measure the prevalence of these layered 'markers' in bioinformatic research teams. 
 
 ## A Survey of Bioinformatic Software Engineering Practice
-Describe the survey and its results...
 
+```{r readAndCleanData, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE}
+library(likert)
+library(reshape)
+
+cleanLifeScienceData <- function(results){
+  results <- results[-1,]  #Remove top line which does not hold data
+  results <- results[results[,57] == "Yes", ]  #Only those who write their own software
+  results <-  results[, c(58:61,93:110)]  #Extract the interesting parts of the survey
+  names(results) <- c(1:22)
+  # Add a column saying LifeScience
+  results["SurveyType"] <- "Life Scientists"
+  return(results)
+}
+
+cleanSoftwareEngineeringData <- function(results){
+  results <- results[-1,]  #Remove top line which does not hold data
+  results <-  results[, c(10:13,45:62)]  #Extract the interesting parts of the survey
+  # Rename the columns 
+  # names(results)[1] <- "new name"
+  names(results) <- c(1:22)
+  # Add a column saying SoftwareEngineering
+  results["SurveyType"] <- "Software Engineers"
+  return(results)
+}
+
+likertColumn <- function(data, startColumn){
+  levels <- c("Strongly disagree", "Disagree", "Neither agree or disagree", "Agree", "Strongly agree")
+  dataRange <- data[, startColumn]
+  # likertTextResults <- do.call(paste, c(dataRange[], sep=""))
+  return (ordered(dataRange, levels))
+}
+
+# Extract and clean data
+lifeScienceData <- read.csv(file="./data/life-science/Results_condensed.csv",head=TRUE,sep=",")
+softwareEngineeringData <- read.csv(file="./data/software-engineering/Results_condensed.csv",head=TRUE,sep=",")
+cleanLSData <- cleanLifeScienceData(lifeScienceData)
+cleanSEData <- cleanSoftwareEngineeringData(softwareEngineeringData)
+cleanData <- rbind(cleanLSData, cleanSEData)
+
+# Prepare themes for plotting
+titleTheme <- theme(plot.title = element_text(size=20, face="bold"))
+textTheme <- theme(text = element_text(size=18))
+```
+
+```{r infrastructure, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5}
+
+# Infrastructure columns
+buildSystemsColumn <- likertColumn(cleanData, 1)
+sourceControlColumn <- likertColumn(cleanData, 2)
+ideColumn <- likertColumn(cleanData, 3)
+ciColumn <- likertColumn(cleanData, 4)
+result <- data.frame(buildSystemsColumn, sourceControlColumn, ideColumn, ciColumn)
+cols <- c("Build Systems", "Source Control", "Integrated Development Environment", "Continuous Integration")
+colnames(result) <- cols
+infrastructure <- likert(result, grouping = cleanData$SurveyType)
+
+title <- "The following development tools are used in your organisation's projects"
+plot(infrastructure, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+```
+
+```{r processes, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5}
+
+#  Processes columns
+reproducibleBuildColumn <- likertColumn(cleanData, 5)
+releaseScriptsColumn <- likertColumn(cleanData, 6)
+sourceControlBranchingColumn <- likertColumn(cleanData, 7)
+ciWithUnitTestsColumn <- likertColumn(cleanData, 8)
+autoSourceAnalysisColumn <- likertColumn(cleanData, 9)
+result <- data.frame(reproducibleBuildColumn, releaseScriptsColumn, sourceControlBranchingColumn, ciWithUnitTestsColumn, autoSourceAnalysisColumn)
+cols <- c("Automated/Reproducible Builds", "Release Scripts", "Source Control Branching", "Continuous Integration with Unit Testing", "Automated Source Code Analysis")
+colnames(result) <- cols
+
+processes <- likert(result, grouping = cleanData$SurveyType)
+
+title <- "The following processes are used in your organisation's projects"
+plot(processes, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+
+```
+
+```{r practices, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=20}
+
+# Practices columns
+unitTestingColumn <- likertColumn(cleanData, 10)
+integrationTestingColumn <- likertColumn(cleanData, 11)
+uatColumn <- likertColumn(cleanData, 12)
+dependencyInjectionColumn <- likertColumn(cleanData, 13)
+designPatternsColumn <- likertColumn(cleanData, 14)
+codeReviewColumn <- likertColumn(cleanData, 15)
+refactoringColumn <- likertColumn(cleanData, 16)
+upFrontDesignColumn <- likertColumn(cleanData, 17)
+
+result <- data.frame(unitTestingColumn, integrationTestingColumn, uatColumn, dependencyInjectionColumn, designPatternsColumn, codeReviewColumn, refactoringColumn, upFrontDesignColumn)
+cols <- c("Unit Testing", "Integration Testing", "User Acceptence Testing", "Dependency Injection", "Use of Design Patterns", "Code Review", "Refactoring", "Up Front Architecture and Design")
+colnames(result) <- cols
+
+practices <- likert(result, grouping = cleanData$SurveyType)
+
+title <- "The following practices and techniques are used in your organisation's projects"
+plot(practices, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+
+```
+
+```{r goals, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5}
+
+# Goals columns
+scalabilityColumn <- likertColumn(cleanData, 18)
+readabilityColumn <- likertColumn(cleanData, 19)
+modularityColumn <- likertColumn(cleanData, 20)
+performanceColumn <- likertColumn(cleanData, 21)
+testabilityColumn <- likertColumn(cleanData, 22)
+
+
+result <- data.frame(scalabilityColumn, readabilityColumn, modularityColumn, performanceColumn, testabilityColumn)
+cols <- c("Scalability", "Readability", "Modularity", "Performance", "Testability")
+colnames(result) <- cols
+
+goals <- likert(result, grouping = cleanData$SurveyType)
+
+title <- "The following architecture and design goals are important in your organization"
+plot(goals, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+
+```
 
 # Alternative Solutions
 The results of our survey confirm the deficit in bioinformatic software engineering skills, and we now look at what its causes and remedies might be, beyond what has already been discussed in the reviewed literature. We believe that in order to address this deficit effectively, we must take into account the difference between computer programming and software engineering as discussed above. We assert that it is impractical, if not impossible, to introduce the missing software engineering expertise into bioinformatics by treating that expertise as a sub-component of bioinformatics. Software Engineering encompasses too large a body of knowledge, which is acquired by too different a form of education to simply be bolted on to existing bioinformatic curricula. Put another way, we believe that the most effective way of introducing software engineering values into bioinformatic research is to introduce software engineers themselves, by recognizing the separate role of the Bioinformatic Engineer in bioinformatic research projects, and identifying the interface between the engineer and the scientist. Before we discuss how this might be done, we look again at the alternatives and the arguments against introducing software engineering values in the first place.
