@@ -5,6 +5,7 @@ date: "Cork Institute of Technology, Cork, Ireland"
 output: 
   pdf_document:
     number_sections: true
+    fig_caption: yes
 bibliography: bibliography.bib
 csl: brendan-custom.csl
 abstract: There is a lack of software engineering skills in bioinformatic contexts. We discuss the consequences of this lack, examine existing explanations and remedies to the problem, point out their shortcomings, and propose alternatives. Previous analyses of the problem have tended to treat
@@ -72,7 +73,7 @@ In this section, we give an overview of some of the primary tools, techniques an
 
 The following diagram shows the essential elements of software engineering practice, and illustrates the dependencies between them. We categorize Software Engineering elements into the separate layers of _infrastructure_, _processes_ and _practices_, each layer building on the one below. 
 
-```{r fig.width=7.5, fig.height=7, echo=FALSE, warning=FALSE}
+```{r fig.width=7.5, fig.height=4.5, echo=FALSE, warning=FALSE, fig.cap="Key Components of Software Engineering"}
 library(png)
 library(grid)
 img <- readPNG("./images/ProcessPyramid.png", TRUE)
@@ -128,7 +129,7 @@ titleTheme <- theme(plot.title = element_text(size=20, face="bold"))
 textTheme <- theme(text = element_text(size=18))
 ```
 
-```{r infrastructure, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5}
+```{r infrastructure, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5, fig.cap="Responses to questions on infrastructure"}
 
 # Infrastructure columns
 buildSystemsColumn <- likertColumn(cleanData, 1)
@@ -146,7 +147,7 @@ plot(infrastructure, type="density", legend = "Profession", centered="false", le
 
 From the first set of results it's clear that business software developers and life scientists have distinctly different attitudes towards the standard elements of software engineering infrastructure. Commercial developers almost unanimously *strongly agree* with the statement that build systems, source control, IDEs and Continuous Integration engines are used in their place of work. Life scientists show so such consensus. The closest they come is in their attitude to the statement on source control where on average they *agree* with it, but where a significant minority have no opinion or disagree. Source control systems are of central importance in software engineering practice, on a par with disinfectant in an operating theatre. Complete adherence to their use should be considered the norm, as is borne out by the business software respondents. The other three elements should be considered similarly vital to good software engineering practice.
 
-```{r processes, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5}
+```{r processes, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5, fig.cap="Responses to questions on processes"}
 
 #  Processes columns
 reproducibleBuildColumn <- likertColumn(cleanData, 5)
@@ -164,9 +165,10 @@ title <- "The following processes are used in your organisation's projects"
 plot(processes, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
+
 When it comes to processes (automated or automatable) applied using the elements of infrastructure, the distinction between life scientists and the control group is still clear even if less pronounced. This difference is mostly a function of a reduced consensus among software engineers rather than a positive change in attitudes from the life scientists. A particular point to notice is that although there is a relatively good showing for the use of source control in the previous set of results, life scientists generally *neither agree nor disagree* with the use of branching, despite the fact branching is one of the main advantages of using source control. 
 
-```{r practices, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=20}
+```{r practices, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=20, fig.cap="Responses to questions on practices"}
 
 # Practices columns
 unitTestingColumn <- likertColumn(cleanData, 10)
@@ -188,9 +190,10 @@ title <- "The following practices and techniques are used in your organisation's
 plot(practices, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
+
 As we look at the results for practices and skills, a pattern begins to emerge. The further up the pyramid we go, the 'softer' the consensus among software engineers, while the attitudes of the life scientists remain more or less static. The overall picture of a clean, albeit smaller, separation remains. 
 
-```{r goals, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5}
+```{r goals, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5, fig.cap="Responses to questions on goals"}
 
 # Goals columns
 scalabilityColumn <- likertColumn(cleanData, 18)
@@ -210,6 +213,7 @@ title <- "The following architecture and design goals are important in your orga
 plot(goals, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
+
 The results dealing with goals and ambitions present a break with the previous pattern. Rather than the software engineers falling back to the neutral position of the life scientists, the latter group shows a stronger and clearer consensus in favour of the statements presented to them. In fact there is no discernible difference in attitudes between the two camps. It is interesting that in this section we have posed our questions in a slightly different way. Rather than asking about actual use, we have asked about importance. The goals and aspirations of the life scientists with regard to software architecture are no different to those of commercial software engineers. What they lack however, as indicated by the previous results, are the instruments and techniques necessary to achieve those goals. 
 
 # Alternative Solutions
@@ -241,7 +245,7 @@ Budgets on commercial software projects are tight, as are the deadlines, and any
 ## Bioinformatics Engineering
 We are arguing here for the recognition of the separate role of Bioinformatic Engineer in research teams, but this raises many questions of a practical nature and perhaps some philosophical ones too. How should bioinformatic engineers and bioinformaticians best communicate? Where would their competencies overlap? What should small teams with limited funding do? And in any case, does this separation of roles fly in the face of the cross-disciplinary nature of bioinformatics itself?
  
-```{r fig.width=6, fig.height=4.5, echo=FALSE, warning=FALSE}
+```{r fig.width=6, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="Suggested project Roles of bioinformaticians and  bioinformatic engineers."}
 library(png)
 library(grid)
 img <- readPNG("./images/BioinformaticProjectRoles.png", TRUE)
@@ -256,7 +260,7 @@ The point we are making in distinguishing the role of Bioinformatics Engineer ca
 
 What, then, are those key moments? The following diagram categorizes the kinds of software development that would typically take place in a research team into four quadrants, based on two variables: Whether the work is core or peripheral to the team's output, and whether the resulting software should be considered temporary or permanent. We can use these categories to pinpoint the phases of research where bioinformaticians could increase their productivity by handing over to bioinformatic engineers, or at the very least, "change hat" and temporarily adopt an engineering approach.
 
-```{r fig.width=7, fig.height=7, echo=FALSE, warning=FALSE}
+```{r fig.width=7, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="Handover points between bioinformatican and bioinformatic engineers."}
 library(png)
 library(grid)
 img <- readPNG("./images/ScientificSoftwareUseScenarios.png", TRUE)
