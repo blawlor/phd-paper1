@@ -5,6 +5,7 @@ date: "Cork Institute of Technology, Cork, Ireland"
 output: 
   pdf_document:
     number_sections: true
+    fig_caption: yes
 bibliography: bibliography.bib
 csl: brendan-custom.csl
 abstract: There is a lack of software engineering skills in bioinformatic contexts. We discuss the consequences of this lack, examine existing explanations and remedies to the problem, point out their shortcomings, and propose alternatives. Previous analyses of the problem have tended to treat
@@ -21,10 +22,10 @@ We will examine these consequences under a number of headings, but in all cases 
 *Inability to Reproduce Findings*: A lack of software engineering infrastructure and techniques means that many publications which process data informatically cannot make that software or data available in a reproducible way for peer review. As a consequence, a significant percentage of findings is likely to be reversed or withdrawn from publication. The use of infrastructure such as source code control systems and command-line build tools would improve the situation, by giving researchers the ability to easily publish and share the software that was used as part of their work. But these tools are either unknown or simply considered unnecessary for small teams by bioinformatic researchers. 
 
 
-*Unreliability of Findings*: All surveys on scientific software development we have reviewed cite a lack of software testing as being a constant theme of scientific development. Segal[@segal2007some] points out that the "lack of any disciplined testing procedure" is a characteristic of any development practice where the end user is also the developer. According to a review Morris [@morris2008some] "unit tests often do not exist". Because of the fundamentally important role of such tests in separating problems in the code from problems in the hypotheses, findings based on insufficiently tested software must be considered in turn insufficiently tested themselves. Compare this to the use of defective or uncalibrated lab equipment in order to fully appreciate the nature of the problem.
+*Unreliability of Findings*: All surveys on scientific software development we have reviewed cite a lack of software testing as being a constant theme of scientific development. Segal[@segal2007some] points out that the "lack of any disciplined testing procedure" is a characteristic of any development practice where the end user is also the developer. According to a review Morris [@morris2008some] "unit tests often do not exist"^[Unit testing is a software development practice in which individual units of source code - for example a class in object oriented programming, a procedure in imperative programming or a function in functional programming - are tested in isolation to determine whether they behave correctly.]. Because of the fundamentally important role of such tests in separating problems in the code from problems in the hypotheses, findings based on insufficiently tested software must be considered in turn insufficiently tested themselves. Compare this to the use of defective or uncalibrated lab equipment in order to fully appreciate the nature of the problem.
 
 
-*Limitations in Data Sample Size*: Many scientists run their software on desktops despite the availability of clusters and this is most likely due to a lack of familiarity with software designs for parallel execution of tasks, or with alternative algorithmic approaches which would give better performance. The constraints that this practice inevitably imposes on sample size or sophistication of data analysis are clear. In order to execute programs to completion on desktops, even if in a time frame of hours and days[@prabhu2011survey], researchers will naturally reduce the number of sample points used, or eliminate steps which might increase statistical power but which have exponential or factorial performance profiles. A parameter study, for example, can benefit from pairwise comparisons of its features; but the number of such pairs is ${n \choose 2}$, where n is the number of features, so even modest values of n require concurrent programming and resource management to run to completion on desktop computers. 
+*Limitations in Data Sample Size*: Many scientists run their software on multi-core desktops [@prabhu2011survey]but do so in a single-threaded way which creates performance bottlenecks. This is most likely due to a lack of familiarity with the kind of parallel computing techniques available to software engineers. The constraints that this practice inevitably imposes on sample size or sophistication of data analysis are clear: In order to execute programs to completion on desktops, even if in a time frame of hours and days[@prabhu2011survey], researchers will naturally reduce the number of sample points used, or eliminate steps which might increase statistical power but which have exponential or factorial performance profiles. A parameter study, for example, can benefit from pairwise comparisons of its features; but the number of such pairs is ${n \choose 2}$, where _n_ is the number of features, so even modest values of _n_ require concurrent programming and resource management to run to completion on desktop computers. 
 
 
 *Slowing the Discovery Cycle*: Bioinformatic research is an iterative process in which the computational element takes up a significant percentage. If the researcher has to wait days to see computational results which will decide the next direction that the research is to take, momentum is lost and the entire process of research itself is slowed down. Software engineers can bring skills like performance optimisation and  concurrent programming to bear on this problem, significantly reducing waiting times.
@@ -39,7 +40,7 @@ These are some of the things that can go wrong in bioinformatic research when we
 
 A number of the authors we have reviewed offer explanations and remedies for the problems described above. Hannay et al. [@hannay2009scientists] identify a general lack of formal education and training and a reliance instead on informal learning from peers. Segal & Morris [@segal2008developing] among others emphasize the differences between scientific and commercial software development. Similarly, Verma et al. [@verma2013lack] cite a lack of requirements engineering in bioinformatic projects, as well as other factors that create the "unique situation for the field of software engineering" represented by bioinformatics. Umarji et al. [@umarji2009software] focus exclusively on the gaps in the education of bioinformatic software developers in software engineering principles.
 
-It's important to correctly identify all of the significant causes of the problem. If we start with a false or incomplete diagnosis the treatment is unlikely to be effective. We will look in detail at the root causes proposed by previous studies, but from the previous paragraph we can see that there are some elements in common in the way previous authors have understood the problem, and so in the solutions that they have proposed. Here we will categorize them as Education, Methodology and Special Pleading, and they can be described as follows:
+It's important to correctly identify all of the significant causes of the problem. If we start with a false or incomplete diagnosis the treatment is unlikely to be effective. We will look in detail at the root causes proposed by previous studies, but from the previous paragraph we can see that there are some elements in common in the way previous authors have understood the problem, and so in the solutions that they have proposed. Here we will categorize them as _education_, _methodology_ and _special pleading_, and they can be described as follows:
 
 ##Education
 Some authors have found that bioinformaticians lack the necessary training in Software Engineering skills. Umarji et al. have surveyed bioinformatics curricula in the United States and found that "out of a total of 79 program offerings, there were only 2 instances where a software engineering related course was a required part of the curriculum" and that  "there was no mention of the role and importance of software engineering in the curricula". [@umarji2009software]. 
@@ -50,14 +51,11 @@ The wrong processes - or no processes at all - are being applied to the practice
 ##Special Pleading
 According to some authors, the field of scientific software development is so far removed from the commercial settings in which modern Software Engineering has emerged, that the rules from the latter simply do not apply. Authors have suggested that the two contexts are "fundamentally different" for reasons of subject domain complexity, requirements volatility and budgetary constraints. These differences make it problematic to "impose software engineering techniques on scientists"[@segal2008developing]. So much space has been given to the differences between scientific and commercial development, that it is useful to break it down further as follows.
 
-###Subject Domain Complexity
-Segal & Morris assert that in the case of scientific software development the subject matter is simply too complex for the "average developer". In a similar vein, Hannay suggests that "developers are much less likely to need to be domain experts" in "regular" software development compared to scientific[@segal2008developing]. 
+* __Subject Domain Complexity.__ Segal & Morris assert that in the case of scientific software development the subject matter is simply too complex for the "average developer". In a similar vein, Hannay suggests that "developers are much less likely to need to be domain experts" in "regular" software development compared to scientific[@segal2008developing]. 
 
-###Requirements Volatility
-According to Segal & Morris, "full up-front requirement specifications are impossible" where scientists are concerned, and that requirements rather "emerge" on an ongoing basis. The suggestion is that this is a distinctive feature of scientific programming, which makes the application of software engineering techniques more difficult.
+* __Requirements Volatility.__ According to Segal & Morris, "full up-front requirement specifications are impossible" where scientists are concerned, and that requirements rather "emerge" on an ongoing basis. The suggestion is that this is a distinctive feature of scientific programming, which makes the application of software engineering techniques more difficult.
 
-###Budget and Resources
-Verma et al. and Umarji et al. cite tighter budget and timetable constraints as a differentiating factor of bioinformatic software development, and therefore as one possible cause of a lack of software engineering best practices in that field. 
+* __Budget and Resources.__ Verma et al. and Umarji et al. cite tighter budget and timetable constraints as a differentiating factor of bioinformatic software development, and therefore as one possible cause of a lack of software engineering best practices in that field. 
 
 ###End User (Scientist) as Developer
 A number of authors point out cultural differences between scientists and software engineers as an important issue. Segal & Morris suggest that due to the subject domain complexity already mentioned, developers are likely to be the end-user scientists. But as Verma et al. point out, biologist stakeholders - who are the primary stakeholders in these settings - "may be more inclined to sacrifice program structure to get something that works".
@@ -73,9 +71,9 @@ The skills required to program are not the same as the those required to enginee
 ## Elements of Software Engineering Practice
 In this section, we give an overview of some of the primary tools, techniques and skills of software engineering, and present the results of a survey which seeks to quantify the prevalence of these software engineering elements in bioinformatic settings. Our choice of which tools and techniques to emphasize are based on experience as practitioners, and we find ourselves in full agreement with other authors such as Wilson et al. [@wilson2014best] with respect to those choices.
 
-The following diagram shows the essential elements of software engineering practice, and illustrates the dependencies between them. We categorize Software Engineering elements into the separate layers of Infrastructure, Processes and Practices, each layer building on the one below. 
+The following diagram shows the essential elements of software engineering practice, and illustrates the dependencies between them. We categorize Software Engineering elements into the separate layers of _infrastructure_, _processes_ and _practices_, each layer building on the one below. 
 
-```{r fig.width=7.5, fig.height=7, echo=FALSE, warning=FALSE}
+```{r fig.width=7.5, fig.height=4.5, echo=FALSE, warning=FALSE, fig.cap="Key Components of Software Engineering"}
 library(png)
 library(grid)
 img <- readPNG("./images/ProcessPyramid.png", TRUE)
@@ -131,7 +129,7 @@ titleTheme <- theme(plot.title = element_text(size=20, face="bold"))
 textTheme <- theme(text = element_text(size=18))
 ```
 
-```{r infrastructure, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5}
+```{r infrastructure, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5, fig.cap="Responses to questions on infrastructure"}
 
 # Infrastructure columns
 buildSystemsColumn <- likertColumn(cleanData, 1)
@@ -149,7 +147,7 @@ plot(infrastructure, type="density", legend = "Profession", centered="false", le
 
 From the first set of results it's clear that business software developers and life scientists have distinctly different attitudes towards the standard elements of software engineering infrastructure. Commercial developers almost unanimously *strongly agree* with the statement that build systems, source control, IDEs and Continuous Integration engines are used in their place of work. Life scientists show so such consensus. The closest they come is in their attitude to the statement on source control where on average they *agree* with it, but where a significant minority have no opinion or disagree. Source control systems are of central importance in software engineering practice, on a par with disinfectant in an operating theatre. Complete adherence to their use should be considered the norm, as is borne out by the business software respondents. The other three elements should be considered similarly vital to good software engineering practice.
 
-```{r processes, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5}
+```{r processes, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5, fig.cap="Responses to questions on processes"}
 
 #  Processes columns
 reproducibleBuildColumn <- likertColumn(cleanData, 5)
@@ -167,9 +165,10 @@ title <- "The following processes are used in your organisation's projects"
 plot(processes, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
+
 When it comes to processes (automated or automatable) applied using the elements of infrastructure, the distinction between life scientists and the control group is still clear even if less pronounced. This difference is mostly a function of a reduced consensus among software engineers rather than a positive change in attitudes from the life scientists. A particular point to notice is that although there is a relatively good showing for the use of source control in the previous set of results, life scientists generally *neither agree nor disagree* with the use of branching, despite the fact branching is one of the main advantages of using source control. 
 
-```{r practices, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=20}
+```{r practices, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=20, fig.cap="Responses to questions on practices"}
 
 # Practices columns
 unitTestingColumn <- likertColumn(cleanData, 10)
@@ -191,9 +190,10 @@ title <- "The following practices and techniques are used in your organisation's
 plot(practices, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
+
 As we look at the results for practices and skills, a pattern begins to emerge. The further up the pyramid we go, the 'softer' the consensus among software engineers, while the attitudes of the life scientists remain more or less static. The overall picture of a clean, albeit smaller, separation remains. 
 
-```{r goals, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5}
+```{r goals, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5, fig.cap="Responses to questions on goals"}
 
 # Goals columns
 scalabilityColumn <- likertColumn(cleanData, 18)
@@ -213,6 +213,7 @@ title <- "The following architecture and design goals are important in your orga
 plot(goals, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
+
 The results dealing with goals and ambitions present a break with the previous pattern. Rather than the software engineers falling back to the neutral position of the life scientists, the latter group shows a stronger and clearer consensus in favour of the statements presented to them. In fact there is no discernible difference in attitudes between the two camps. It is interesting that in this section we have posed our questions in a slightly different way. Rather than asking about actual use, we have asked about importance. The goals and aspirations of the life scientists with regard to software architecture are no different to those of commercial software engineers. What they lack however, as indicated by the previous results, are the instruments and techniques necessary to achieve those goals. 
 
 # Alternative Solutions
@@ -244,7 +245,7 @@ Budgets on commercial software projects are tight, as are the deadlines, and any
 ## Bioinformatics Engineering
 We are arguing here for the recognition of the separate role of Bioinformatic Engineer in research teams, but this raises many questions of a practical nature and perhaps some philosophical ones too. How should bioinformatic engineers and bioinformaticians best communicate? Where would their competencies overlap? What should small teams with limited funding do? And in any case, does this separation of roles fly in the face of the cross-disciplinary nature of bioinformatics itself?
  
-```{r fig.width=6, fig.height=4.5, echo=FALSE, warning=FALSE}
+```{r fig.width=6, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="Suggested project Roles of bioinformaticians and  bioinformatic engineers."}
 library(png)
 library(grid)
 img <- readPNG("./images/BioinformaticProjectRoles.png", TRUE)
@@ -257,9 +258,9 @@ The non-intersecting parts of the two sets demonstrate the need for the bioinfor
 
 The point we are making in distinguishing the role of Bioinformatics Engineer can be summarized as follows: Software Engineering is vital to the discipline of bioinformatics *without being a core skill of that discipline*. This question of specialization is a logistic or even economical one which finds echoes in Ricardo's Law of Comparative Advantage[@ruffin2002david]: Even if it were possible for bioinformaticians to subsume the entire discipline of software engineering into their body of knowledge, it would not be desirable. It would simply represent bad value. A bioinformatician investing the necessary time in engineering skills would pay a heavy price in terms of Opportunity Cost - the time *not* spent on study and research in core biological questions. Much better to lean on an engineering specialist in those key moments of research and development when engineering skills come to the fore.
 
-What, then, are those key moments? The following diagram categorizes the kinds of software development that would typically take place in a research team into four quadrants, based on two variables: Whether the work is core or peripheral to the team's output, and whether the resulting software should be considered temporary or permanent. We can use these categories to pinpoint the phases of research where bioinformaticians could increase their productivity by handing over to bioinformatic engineers, or at the very least, "change hat" and temporarily adopt an engineering approach.
+What, then, are those key moments? The following diagram categorizes the kinds of software development that would typically take place in a research team into four quadrants, based on two variables: Whether the work is core or peripheral to the team's output (focus), and whether the resulting software should be considered temporary or permanent (duration). We can use these variables to pinpoint the phases of research where bioinformaticians could increase their productivity by handing over to bioinformatic engineers, or at the very least, "change hat" and temporarily adopt an engineering approach.
 
-```{r fig.width=7, fig.height=7, echo=FALSE, warning=FALSE}
+```{r fig.width=7, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="Handover points between bioinformatican and bioinformatic engineers."}
 library(png)
 library(grid)
 img <- readPNG("./images/ScientificSoftwareUseScenarios.png", TRUE)
@@ -273,10 +274,10 @@ Once we know which category a particular piece of software belongs to, we can cr
 
 The other variable, Core/Peripheral, distinguishes between software that is used as part of the scientific discovery process in a specific line of research, and code that could be considered 'utility code' to be reused in many different settings. The former should in principle be published along with the findings it helped to produce. The latter might find it's way into a commercial or opensource product to be shared with the wider bioinformatic community. In both cases, the need for a transformation from temporary to permanent is the same, but the engineering skills and processes used to achieve it would differ - hence the distinction between them.
 
-If a research team cannot fund a dedicated software engineer, it can still make use of the ideas presented here. The cross-over points in competencies that we have identified above can serve as process boundaries, indicating where bioinformaticians should "change hat" and begin to approach their work with different goals in mind. But in order for this to happen, they must know that these boundaries exist; at a minimum they should be educated in an *appreciation* of software engineering even if their own engineering training will be - of necessity - a peripheral part of their curriculum. As teams ramp-up in size and funding, they will permit themselves to take on specialists, and we content that bioinformatic engineers should be one such category.
+If a research team cannot fund a dedicated software engineer, it can still make use of the ideas presented here. The cross-over points in competencies that we have identified above can serve as process boundaries, indicating where bioinformaticians should "change hat" and begin to approach their work with different goals in mind. But in order for this to happen, they must know that these boundaries exist; at a minimum they should be educated in an *appreciation* of software engineering even if their own engineering training will be - of necessity - a peripheral part of their curriculum. As teams ramp-up in size and funding, they will permit themselves to take on specialists, and we contend that bioinformatic engineers should be one category of such specialists.
 
 # Conclusion
-Bioinformatics is still in the cradle, compared to many of its sibling sciences. In common with many other fields that combine computation, mathematics and statistics with the sciences, a lot of thought and energy is going into the creation of truly cross-disciplinary practitioners. The goal is to combine in one brain a rich knowledge of both biology and computation, because answering the questions in one has become heavily dependent on mastering the skills of the other. 
+Bioinformatics is still in the cradle, compared to many of its sibling sciences. In common with many other fields that combine computation, mathematics and statistics with the sciences, a lot of thought and energy is going into the creation of truly cross-disciplinary practitioners. The goal is to combine in one brain a rich knowledge of both biology and computation, because answering the questions that arise in one has become heavily dependent on mastering the skills developed in the other. 
 
 While there is no doubt about the soundness of this ambition, we feel that a distinction must be made between computational skills and software engineering skills. More to the point, we feel that these skill sets are so diverse and mastered by such different methods, that it is unrealistic to expect a single practitioner to combine biology, computational methods and software engineering. Moreover, it is unnecessary and uneconomical to try. 
 
