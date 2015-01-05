@@ -50,14 +50,11 @@ The wrong processes - or no processes at all - are being applied to the practice
 ##Special Pleading
 According to some authors, the field of scientific software development is so far removed from the commercial settings in which modern Software Engineering has emerged, that the rules from the latter simply do not apply. Authors have suggested that the two contexts are "fundamentally different" for reasons of subject domain complexity, requirements volatility and budgetary constraints. These differences make it problematic to "impose software engineering techniques on scientists"[@segal2008developing]. So much space has been given to the differences between scientific and commercial development, that it is useful to break it down further as follows.
 
-###Subject Domain Complexity
-Segal & Morris assert that in the case of scientific software development the subject matter is simply too complex for the "average developer". In a similar vein, Hannay suggests that "developers are much less likely to need to be domain experts" in "regular" software development compared to scientific[@segal2008developing]. 
+* __Subject Domain Complexity.__ Segal & Morris assert that in the case of scientific software development the subject matter is simply too complex for the "average developer". In a similar vein, Hannay suggests that "developers are much less likely to need to be domain experts" in "regular" software development compared to scientific[@segal2008developing]. 
 
-###Requirements Volatility
-According to Segal & Morris, "full up-front requirement specifications are impossible" where scientists are concerned, and that requirements rather "emerge" on an ongoing basis. The suggestion is that this is a distinctive feature of scientific programming, which makes the application of software engineering techniques more difficult.
+* __Requirements Volatility.__ According to Segal & Morris, "full up-front requirement specifications are impossible" where scientists are concerned, and that requirements rather "emerge" on an ongoing basis. The suggestion is that this is a distinctive feature of scientific programming, which makes the application of software engineering techniques more difficult.
 
-###Budget and Resources
-Verma et al. and Umarji et al. cite tighter budget and timetable constraints as a differentiating factor of bioinformatic software development, and therefore as one possible cause of a lack of software engineering best practices in that field. 
+* __Budget and Resources.__ Verma et al. and Umarji et al. cite tighter budget and timetable constraints as a differentiating factor of bioinformatic software development, and therefore as one possible cause of a lack of software engineering best practices in that field. 
 
 ###End User (Scientist) as Developer
 A number of authors point out cultural differences between scientists and software engineers as an important issue. Segal & Morris suggest that due to the subject domain complexity already mentioned, developers are likely to be the end-user scientists. But as Verma et al. point out, biologist stakeholders - who are the primary stakeholders in these settings - "may be more inclined to sacrifice program structure to get something that works".
