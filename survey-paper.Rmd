@@ -70,7 +70,7 @@ The skills required to program are not the same as the those required to enginee
 ## Elements of Software Engineering Practice
 In this section, we give an overview of some of the primary tools, techniques and skills of software engineering, and present the results of a survey which seeks to quantify the prevalence of these software engineering elements in bioinformatic settings. Our choice of which tools and techniques to emphasize are based on experience as practitioners, and we find ourselves in full agreement with other authors such as Wilson et al. [@wilson2014best] with respect to those choices.
 
-The following diagram shows the essential elements of software engineering practice, and illustrates the dependencies between them. We categorize Software Engineering elements into the separate layers of Infrastructure, Processes and Practices, each layer building on the one below. 
+The following diagram shows the essential elements of software engineering practice, and illustrates the dependencies between them. We categorize Software Engineering elements into the separate layers of _infrastructure_, _processes_ and _practices_, each layer building on the one below. 
 
 ```{r fig.width=7.5, fig.height=7, echo=FALSE, warning=FALSE}
 library(png)
