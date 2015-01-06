@@ -73,14 +73,14 @@ In this section, we give an overview of some of the primary tools, techniques an
 
 The following diagram shows the essential elements of software engineering practice, and illustrates the dependencies between them. We categorize Software Engineering elements into the separate layers of _infrastructure_, _processes_ and _practices_, each layer building on the one below. 
 
-```{r fig.width=7.5, fig.height=4.5, echo=FALSE, warning=FALSE, fig.cap="Key Components of Software Engineering"}
+```{r fig.width=7.5, fig.height=4.5, echo=FALSE, warning=FALSE, fig.cap="\\label{fig:components}Key Components of Software Engineering"}
 library(png)
 library(grid)
 img <- readPNG("./images/ProcessPyramid.png", TRUE)
  grid.raster(img)
 ```
 
-The basis of good practice lies in the correct choice of the *Tools and Infrastructure* indicated in the above figure. Of course a software engineer chooses the tools based on the practices that she wishes to encourage, but their presence in a development environment is like a genetic marker that accompanies good engineering standards. The layers representing automated *Processes* and experience-based *Practices* contain their own 'markers' which depend on those in the layers below: Even the most skilled and experienced engineer will be thwarted by an inadequate development environment. With this in mind, we designed a survey to measure the prevalence of these layered 'markers' in bioinformatic research teams. 
+The basis of good practice lies in the correct choice of the *Tools and Infrastructure* indicated in figure \ref{fig:components}. Of course a software engineer chooses the tools based on the practices that she wishes to encourage, but their presence in a development environment is like a genetic marker that accompanies good engineering standards. The layers representing automated *Processes* and experience-based *Practices* contain their own 'markers' which depend on those in the layers below: Even the most skilled and experienced engineer will be thwarted by an inadequate development environment. With this in mind, we designed a survey to measure the prevalence of these layered 'markers' in bioinformatic research teams. 
 
 ## A Survey of Bioinformatic Software Engineering Practice
 We conducted two parallel surveys, one distributed to life scientists, and the other to developers of business software. In both cases we asked questions to identify attitudes towards certain key 'markers' of software engineering as described in the previous section. We reached 81 life scientists, 45 of whom developed their own software, and 31 business software developers. We used the Likert system of questionnaire in which respondents rate their attitudes to statements from *strongly disagree* to *strongly agree*, with a total of 5 degrees to choose from. We present the results below in a form that most usefully compares the difference between the two groups, i.e. probability density graphs that treat the answers as if they were continuous variables. The purpose of the business software data is to act as a control for attitudes towards the software engineering 'markers'. Life scientist responses are in red, business software developer responses are in blue.^[Note that we used the R language to clean and analyse data. The data, code and the source markdown for this paper can be examined at https://github.com/blawlor/phd-paper1.git. The survey was carried out using surveymonkey and the data was exported in anonymised csv format.]
@@ -129,7 +129,7 @@ titleTheme <- theme(plot.title = element_text(size=20, face="bold"))
 textTheme <- theme(text = element_text(size=18))
 ```
 
-```{r infrastructure, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5, fig.cap="Responses to questions on infrastructure"}
+```{r infrastructure, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=8, fig.cap="\\label{fig:infrastructure}Responses to questions on infrastructure"}
 
 # Infrastructure columns
 buildSystemsColumn <- likertColumn(cleanData, 1)
@@ -142,12 +142,12 @@ colnames(result) <- cols
 infrastructure <- likert(result, grouping = cleanData$SurveyType)
 
 title <- "The following development tools are used in your organisation's projects"
-plot(infrastructure, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+plot(infrastructure, legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 ```
 
-From the first set of results it's clear that business software developers and life scientists have distinctly different attitudes towards the standard elements of software engineering infrastructure. Commercial developers almost unanimously *strongly agree* with the statement that build systems, source control, IDEs and Continuous Integration engines are used in their place of work. Life scientists show so such consensus. The closest they come is in their attitude to the statement on source control where on average they *agree* with it, but where a significant minority have no opinion or disagree. Source control systems are of central importance in software engineering practice, on a par with disinfectant in an operating theatre. Complete adherence to their use should be considered the norm, as is borne out by the business software respondents. The other three elements should be considered similarly vital to good software engineering practice.
+From the first set of results (Figure \ref{fig:infrastructure}) it's clear that business software developers and life scientists have distinctly different attitudes towards the standard elements of software engineering infrastructure. Commercial developers almost unanimously *strongly agree* with the statement that build systems, source control, IDEs and Continuous Integration engines are used in their place of work. Life scientists show so such consensus. The closest they come is in their attitude to the statement on source control where on average they *agree* with it, but where a significant minority have no opinion or disagree. Source control systems are of central importance in software engineering practice, on a par with disinfectant in an operating theatre. Complete adherence to their use should be considered the norm, as is borne out by the business software respondents. The other three elements should be considered similarly vital to good software engineering practice.
 
-```{r processes, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5, fig.cap="Responses to questions on processes"}
+```{r processes, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=10, fig.cap="\\label{fig:processes}Responses to questions on processes"}
 
 #  Processes columns
 reproducibleBuildColumn <- likertColumn(cleanData, 5)
@@ -162,13 +162,13 @@ colnames(result) <- cols
 processes <- likert(result, grouping = cleanData$SurveyType)
 
 title <- "The following processes are used in your organisation's projects"
-plot(processes, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+plot(processes, legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
 
-When it comes to processes (automated or automatable) applied using the elements of infrastructure, the distinction between life scientists and the control group is still clear even if less pronounced. This difference is mostly a function of a reduced consensus among software engineers rather than a positive change in attitudes from the life scientists. A particular point to notice is that although there is a relatively good showing for the use of source control in the previous set of results, life scientists generally *neither agree nor disagree* with the use of branching, despite the fact branching is one of the main advantages of using source control. 
+When it comes to processes (automated or automatable) applied using the elements of infrastructure, the distinction between life scientists and the control group is still clear even if less pronounced (Figure \ref{fig:processes}). This difference is mostly a function of a reduced consensus among software engineers rather than a positive change in attitudes from the life scientists. A particular point to notice is that although there is a relatively good showing for the use of source control in the previous set of results, life scientists generally *neither agree nor disagree* with the use of branching, despite the fact branching is one of the main advantages of using source control. 
 
-```{r practices, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=20, fig.cap="Responses to questions on practices"}
+```{r practices, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=16, fig.cap="\\label{fig:practices}Responses to questions on practices"}
 
 # Practices columns
 unitTestingColumn <- likertColumn(cleanData, 10)
@@ -187,13 +187,13 @@ colnames(result) <- cols
 practices <- likert(result, grouping = cleanData$SurveyType)
 
 title <- "The following practices and techniques are used in your organisation's projects"
-plot(practices, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+plot(practices, legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
 
-As we look at the results for practices and skills, a pattern begins to emerge. The further up the pyramid we go, the 'softer' the consensus among software engineers, while the attitudes of the life scientists remain more or less static. The overall picture of a clean, albeit smaller, separation remains. 
+As we look at the results for practices and skills(Figure \ref{fig:practices}), a pattern begins to emerge. The further up the pyramid we go, the 'softer' the consensus among software engineers, while the attitudes of the life scientists remain more or less static. The overall picture of a clean, albeit smaller, separation remains. 
 
-```{r goals, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=12.5, fig.cap="Responses to questions on goals"}
+```{r goals, echo = FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width=16, fig.height=10, fig.cap="\\label{fig:goals}Responses to questions on goals"}
 
 # Goals columns
 scalabilityColumn <- likertColumn(cleanData, 18)
@@ -210,11 +210,11 @@ colnames(result) <- cols
 goals <- likert(result, grouping = cleanData$SurveyType)
 
 title <- "The following architecture and design goals are important in your organization"
-plot(goals, type="density", legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+plot(goals, legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
 
-The results dealing with goals and ambitions present a break with the previous pattern. Rather than the software engineers falling back to the neutral position of the life scientists, the latter group shows a stronger and clearer consensus in favour of the statements presented to them. In fact there is no discernible difference in attitudes between the two camps. It is interesting that in this section we have posed our questions in a slightly different way. Rather than asking about actual use, we have asked about importance. The goals and aspirations of the life scientists with regard to software architecture are no different to those of commercial software engineers. What they lack however, as indicated by the previous results, are the instruments and techniques necessary to achieve those goals. 
+The results dealing with goals and ambitions (Figure \ref{fig:goals}) present a break with the previous pattern. Rather than the software engineers falling back to the neutral position of the life scientists, the latter group shows a stronger and clearer consensus in favour of the statements presented to them. In fact there is no discernible difference in attitudes between the two camps. It is interesting that in this section we have posed our questions in a slightly different way. Rather than asking about actual use, we have asked about importance. The goals and aspirations of the life scientists with regard to software architecture are no different to those of commercial software engineers. What they lack however, as indicated by the previous results, are the instruments and techniques necessary to achieve those goals. 
 
 # Alternative Solutions
 The results of our survey confirm the deficit in bioinformatic software engineering skills, while at the same time indicating an ambition among bioinformaticians to bridge the gap. We now look at what the causes and remedies of this deficit might be, and revisit the reviewed literature. We believe that in order to address this deficit effectively, we must take into account the difference between computer programming and software engineering as discussed above. We assert that it is impractical, if not impossible, to introduce the missing software engineering expertise into bioinformatics by treating that expertise as a sub-component of bioinformatics. Software Engineering encompasses too large a body of knowledge, which is acquired by too different a form of education to simply be bolted on to existing bioinformatic curricula. Put another way, we believe that the most effective way of introducing software engineering values into bioinformatic research is to introduce software engineers themselves, by recognizing the separate role of the Bioinformatic Engineer in bioinformatic research projects, and identifying the interface between the engineer and the scientist. Before we discuss how this might be done, we look again at the alternative solutions from the existing literature, in the light of our assertions and finding above.
@@ -245,14 +245,14 @@ Budgets on commercial software projects are tight, as are the deadlines, and any
 ## Bioinformatics Engineering
 We are arguing here for the recognition of the separate role of Bioinformatic Engineer in research teams, but this raises many questions of a practical nature and perhaps some philosophical ones too. How should bioinformatic engineers and bioinformaticians best communicate? Where would their competencies overlap? What should small teams with limited funding do? And in any case, does this separation of roles fly in the face of the cross-disciplinary nature of bioinformatics itself?
  
-```{r fig.width=6, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="Suggested project Roles of bioinformaticians and  bioinformatic engineers."}
+```{r fig.width=6, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="\\label{fig:roles}Suggested project Roles of bioinformaticians and  bioinformatic engineers."}
 library(png)
 library(grid)
 img <- readPNG("./images/BioinformaticProjectRoles.png", TRUE)
  grid.raster(img)
 ```
 
-The intersection of the two sets in the above diagram show the role that education can play in preparing bioinformaticians and bioinformatic engineers to work together. Engineers need to know enough about the biology domain to communicate effectively with bioinformaticians. Complexity of the problem domain does not prevent this from happening in similarly complex commercial settings, and despite much special pleading in the literature there is insufficient reason to think that bioinformatics would be different. Commercial software engineers typically specialize in 'verticals' and market themselves as much on the basis of their domain experience as on their technical skills. Bioinformatics can be seen as a particularly stable and well defined problem domain, itself subdivided into various verticals. Bioinformaticians already understand programming enough to communicate their ideas and requirements through code (even if, as we have indicated earlier, there is enormous potential for DSLs to close the communication gap even further).
+The intersection of the two sets in the figure \ref{fig:roles} show the role that education can play in preparing bioinformaticians and bioinformatic engineers to work together. Engineers need to know enough about the biology domain to communicate effectively with bioinformaticians. Complexity of the problem domain does not prevent this from happening in similarly complex commercial settings, and despite much special pleading in the literature there is insufficient reason to think that bioinformatics would be different. Commercial software engineers typically specialize in 'verticals' and market themselves as much on the basis of their domain experience as on their technical skills. Bioinformatics can be seen as a particularly stable and well defined problem domain, itself subdivided into various verticals. Bioinformaticians already understand programming enough to communicate their ideas and requirements through code (even if, as we have indicated earlier, there is enormous potential for DSLs to close the communication gap even further).
 
 The non-intersecting parts of the two sets demonstrate the need for the bioinformatic engineer in the first place. The entire field of software engineering is too large to incorporate into the skillset of bioinformatics, and much of it is of no interest to the bioinformatician in the first place. Nobody expects him to build, or even understand the inner workings of, the centrifuges and mass spectrometers that are so essential to research. Why then should we expect him to master the art of building large-scale, performant and production-ready software systems? 
 
@@ -260,7 +260,7 @@ The point we are making in distinguishing the role of Bioinformatics Engineer ca
 
 What, then, are those key moments? The following diagram categorizes the kinds of software development that would typically take place in a research team into four quadrants, based on two variables: Whether the work is core or peripheral to the team's output (focus), and whether the resulting software should be considered temporary or permanent (duration). We can use these variables to pinpoint the phases of research where bioinformaticians could increase their productivity by handing over to bioinformatic engineers, or at the very least, "change hat" and temporarily adopt an engineering approach.
 
-```{r fig.width=7, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="Handover points between bioinformatican and bioinformatic engineers."}
+```{r fig.width=7, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="\\label{fig:handover}Handover points between bioinformatican and bioinformatic engineers."}
 library(png)
 library(grid)
 img <- readPNG("./images/ScientificSoftwareUseScenarios.png", TRUE)
@@ -270,7 +270,7 @@ img <- readPNG("./images/ScientificSoftwareUseScenarios.png", TRUE)
 To explain what we mean by these categories and variables, we refer to Morris' observation [@morris2008some] that "[o]ne concern is that scientific prototype code, if successful, segues into applications that are distributed for wider research use. Later it may be adopted for production purposes, sometimes even for
 safety critical use." In other words, it is important to allow bioinformaticians to create code that is exploratory in nature but fragile from an engineering point of view. But it is equally important to ensure that such code does not form the basis of published findings or shared products and tools. We model this feature with the variable that distinguishes between temporary and permanent software. 
 
-Once we know which category a particular piece of software belongs to, we can create procedures for moving it to a different category should the need arise. For example, according to Sanders and Kelly [@sanders2008dealing] some teams took a "do it twice" approach - that is, a rewrite of software according to more exacting engineering requirements. This corresponds to moving software from the upper half to the lower half of the the above diagram. So this is already practiced in some research teams. The point is to explicitly recognize these categories and put processes in place to avoid the kind of error that Morris describes.
+Once we know which category a particular piece of software belongs to, we can create procedures for moving it to a different category should the need arise. For example, according to Sanders and Kelly [@sanders2008dealing] some teams took a "do it twice" approach - that is, a rewrite of software according to more exacting engineering requirements. This corresponds to moving software from the upper half to the lower half of figure \ref{fig:handover}. So this is already practiced in some research teams. The point is to explicitly recognize these categories and put processes in place to avoid the kind of error that Morris describes.
 
 The other variable, Core/Peripheral, distinguishes between software that is used as part of the scientific discovery process in a specific line of research, and code that could be considered 'utility code' to be reused in many different settings. The former should in principle be published along with the findings it helped to produce. The latter might find it's way into a commercial or opensource product to be shared with the wider bioinformatic community. In both cases, the need for a transformation from temporary to permanent is the same, but the engineering skills and processes used to achieve it would differ - hence the distinction between them.
 
