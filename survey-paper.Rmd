@@ -1,17 +1,37 @@
 ---
-title: "Engineering a Solution: A Review of Software Engineering Values in Bioinformatics"
-author: "Brendan Lawlor, Paul Walsh"
-date: "Cork Institute of Technology, Cork, Ireland"
-output: 
-  pdf_document:
-    number_sections: true
-    fig_caption: yes
+title: 'Engineering Bioinformatics: Building Reliability, Performance and Productivity
+  into Bioinformatics Software'
+author1:
+- name: Brendan Lawlor
+  affiliation: Cork Institute of Technology, Ireland
+author2:
+- name: Paul Walsh
+  affiliation: NSilico Life Science, Ireland
 bibliography: bibliography.bib
+output:
+  pdf_document:
+    fig_caption: yes
+    number_sections: yes
+    template: paper_template.tex
+fontsize: 10pt
+geometry: margin=1in    
 csl: brendan-custom.csl
-abstract: There is a lack of software engineering skills in bioinformatic contexts. We discuss the consequences of this lack, examine existing explanations and remedies to the problem, point out their shortcomings, and propose alternatives. Previous analyses of the problem have tended to treat
-  the use of software in scientific contexts as categorically different from the general
-  application of software engineering in commercial settings. In contrast, we describe bioinformatic software engineering as a specialization of general software engineering, and examine how it should be practiced. Specifically, we highlight the difference between programming and software engineering, list elements of the latter and present the results of a survey of bioinformatic practitioners which quantifies the extent to which those
-  elements are employed in bioinformatics. We propose that the best way to bring engineering values into research projects is to bring engineers themselves. We identify the role of Bioinformatic Engineer and describe how such a role would work within a bioinformatic research teams. We conclude by recommending an educational emphasis on cross-training software engineers into life sciences, and propose research on Domain Specific Languages to facilitate collaboration between engineers and bioinformaticians.
+abstract: There is a lack of software engineering skills in bioinformatic contexts.
+  We discuss the consequences of this lack, examine existing explanations and remedies
+  to the problem, point out their shortcomings, and propose alternatives. Previous
+  analyses of the problem have tended to treat the use of software in scientific contexts
+  as categorically different from the general application of software engineering
+  in commercial settings. In contrast, we describe bioinformatic software engineering
+  as a specialization of general software engineering, and examine how it should be
+  practiced. Specifically, we highlight the difference between programming and software
+  engineering, list elements of the latter and present the results of a survey of
+  bioinformatic practitioners which quantifies the extent to which those elements
+  are employed in bioinformatics. We propose that the ideal way to bring engineering
+  values into research projects is to bring engineers themselves. We identify the
+  role of Bioinformatic Engineer and describe how such a role would work within a
+  bioinformatic research teams. We conclude by recommending an educational emphasis
+  on cross-training software engineers into life sciences, and propose research on
+  Domain Specific Languages to facilitate collaboration between engineers and bioinformaticians.
 ---
 
 # Problem Description
@@ -260,7 +280,7 @@ The point we are making in distinguishing the role of Bioinformatics Engineer ca
 
 What, then, are those key moments? The following diagram categorizes the kinds of software development that would typically take place in a research team into four quadrants, based on two variables: Whether the work is core or peripheral to the team's output (focus), and whether the resulting software should be considered temporary or permanent (duration). We can use these variables to pinpoint the phases of research where bioinformaticians could increase their productivity by handing over to bioinformatic engineers, or at the very least, "change hat" and temporarily adopt an engineering approach.
 
-```{r fig.width=7, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="\\label{fig:handover}Handover points between bioinformatican and bioinformatic engineers."}
+```{r fig.width=7, fig.height=3.5, echo=FALSE, warning=FALSE, fig.cap="\\label{fig:handover}Handover points between bioinformaticans and bioinformatic engineers."}
 library(png)
 library(grid)
 img <- readPNG("./images/ScientificSoftwareUseScenarios.png", TRUE)
