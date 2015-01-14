@@ -132,7 +132,8 @@ $endif$
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
-
+% Use symbols for footnotes rather than numbers
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 $if(title)$
 \title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
 $endif$
