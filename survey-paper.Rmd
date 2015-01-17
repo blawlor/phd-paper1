@@ -2,20 +2,23 @@
 title: 'Engineering Bioinformatics: Building Reliability, Performance and Productivity
   into Bioinformatics Software'
 author1:
-- name: Brendan Lawlor
-  affiliation: Cork Institute of Technology, Ireland
+- affiliation: Cork Institute of Technology, Ireland
+  name: Brendan Lawlor
 author2:
-- name: Paul Walsh
-  affiliation: NSilico Life Science, Ireland
-bibliography: bibliography.bib
+- affiliation: NSilico Life Science, Ireland
+  name: Paul Walsh
 output:
   pdf_document:
     fig_caption: yes
     number_sections: yes
     template: paper_template.tex
-fontsize: 10pt
-geometry: margin=1in    
+  html_document: default
+  word_document:
+    fig_caption: yes
 csl: landes-bioscience-journals.csl
+fontsize: 10pt
+geometry: margin=1in
+bibliography: bibliography.bib
 abstract: There is a lack of software engineering skills in bioinformatic contexts.
   We discuss the consequences of this lack, examine existing explanations and remedies
   to the problem, point out their shortcomings, and propose alternatives. Previous
@@ -271,7 +274,7 @@ img <- readPNG("./images/BioinformaticProjectRoles.png", TRUE)
  grid.raster(img)
 ```
 
-The intersection of the two sets in the figure \ref{fig:roles} show the role that education can play in preparing bioinformaticians and bioinformatic engineers to work together. Engineers need to know enough about the biology domain to communicate effectively with bioinformaticians. Complexity of the problem domain does not prevent this from happening in similarly complex commercial settings, and despite much special pleading in the literature there is insufficient reason to think that bioinformatics would be different. Commercial software engineers typically specialize in 'verticals' and market themselves as much on the basis of their domain experience as on their technical skills. Bioinformatics can be seen as a particularly stable and well defined problem domain, itself subdivided into various verticals. Bioinformaticians already understand programming enough to communicate their ideas and requirements through code (even if, as we have indicated earlier, there is enormous potential for DSLs to close the communication gap even further).
+The intersection of the two sets in figure \ref{fig:roles} show the role that education can play in preparing bioinformaticians and bioinformatic engineers to work together. Engineers need to know enough about the biology domain to communicate effectively with bioinformaticians. Complexity of the problem domain does not prevent this from happening in similarly complex commercial settings, and despite much special pleading in the literature there is insufficient reason to think that bioinformatics would be different. Commercial software engineers typically specialize in 'verticals' and market themselves as much on the basis of their domain experience as on their technical skills. Bioinformatics can be seen as a particularly stable and well defined problem domain, itself subdivided into various verticals. Bioinformaticians already understand programming enough to communicate their ideas and requirements through code (even if, as we have indicated earlier, there is enormous potential for DSLs to close the communication gap even further).
 
 The non-intersecting parts of the two sets demonstrate the need for the bioinformatic engineer in the first place. The entire field of software engineering is too large to incorporate into the skillset of bioinformatics, and much of it is of no interest to the bioinformatician in the first place. Nobody expects him to build, or even understand the inner workings of, the centrifuges and mass spectrometers that are so essential to research. Why then should we expect him to master the art of building large-scale, performant and production-ready software systems? 
 
