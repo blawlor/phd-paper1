@@ -166,7 +166,7 @@ colnames(result) <- cols
 infrastructure <- likert(result, grouping = cleanData$SurveyType)
 
 title <- "The following development tools are used in your organisation's projects"
-plot(infrastructure, legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+plot(infrastructure, legend = "Profession", centered="true", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 ```
 
 From the first set of results (Figure \ref{fig:infrastructure}) it's clear that business software developers and life scientists have distinctly different attitudes towards the standard elements of software engineering infrastructure. Commercial developers almost unanimously *strongly agree* with the statement that build systems, source control, IDEs and Continuous Integration engines are used in their place of work. Life scientists show no such consensus. The closest they come to each other is in their attitude to the statement on source control where on average they *agree* with it, but where a significant minority have no opinion or disagree. Source control systems are of central importance in software engineering practice, on a par with disinfectant in an operating theatre. Complete adherence to their use should be considered the norm, as is borne out by the business software respondents. The other three elements should be considered similarly vital to good software engineering practice.
@@ -186,7 +186,7 @@ colnames(result) <- cols
 processes <- likert(result, grouping = cleanData$SurveyType)
 
 title <- "The following processes are used in your organisation's projects"
-plot(processes, legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+plot(processes, legend = "Profession", centered="true", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
 
@@ -211,7 +211,7 @@ colnames(result) <- cols
 practices <- likert(result, grouping = cleanData$SurveyType)
 
 title <- "The following practices and techniques are used in your organisation's projects"
-plot(practices, legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+plot(practices, legend = "Profession", centered="true", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
 
@@ -234,7 +234,7 @@ colnames(result) <- cols
 goals <- likert(result, grouping = cleanData$SurveyType)
 
 title <- "The following architecture and design goals are important in your organization"
-plot(goals, legend = "Profession", centered="false", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+plot(goals, legend = "Profession", centered="true", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
 
 ```
 
@@ -300,7 +300,7 @@ The other variable, *focus*, distinguishes between software that is used as part
 
 If a research team cannot fund a dedicated software engineer, it can still make use of the ideas presented here. The cross-over points in competencies that we have identified above can serve as process boundaries, indicating where bioinformaticians should "change hat" and begin to approach their work with different goals in mind. But in order for this to happen, they must know that these boundaries exist; at a minimum they should be educated in an *appreciation* of software engineering even if their own engineering training will be - of necessity - a peripheral part of their curriculum. As teams ramp-up in size and funding, they will permit themselves to take on specialists, and we contend that bioinformatic engineers should be one category of such specialists.
 
-Projects that weave software engineering best practices into bioinformatics research and *in silico* experimentation reap concrete rewards. By employing software engineering techniques such as a layered architecture, explicit development models and a rigorous requirements-gathering approach, Walsh et al. [@walsh2013accelerating] produced an accelerated research workflow tool, which is amenable to extension and highly scalable. The blended team of biologists, computer scientists and engineers which has modelled integrated physiological processes of Caenorhabditis elegans (C. elegans) *in silico*, has asserted that "[i]n order to be able to effectively manage the complexity that comes with integrating and maintaining coarse-grained architectures, tools, digital information artifacts and codebases, it is important for computational biology to fully embrace software engineering methodologies and best practices and follow the lead of the simulation based research in the physical sciences." [@szigeti2014openworm; @idili2011managing]
+Projects that weave software engineering best practices into bioinformatics research and *in silico* experimentation reap concrete rewards. By employing software engineering techniques such as a layered architecture, explicit development models and a rigorous requirements-gathering approach, Walsh et al. [@walsh2013accelerating] produced an accelerated research workflow tool, which is amenable to extension and is highly scalable. The blended team of biologists, computer scientists and engineers which has modelled integrated physiological processes of Caenorhabditis elegans (C. elegans) *in silico*, has asserted that "[i]n order to be able to effectively manage the complexity that comes with integrating and maintaining coarse-grained architectures, tools, digital information artifacts and codebases, it is important for computational biology to fully embrace software engineering methodologies and best practices and follow the lead of the simulation based research in the physical sciences." [@szigeti2014openworm; @idili2011managing]
 
 # Conclusion
 Bioinformatics is still in the cradle, compared to many of its sibling sciences. In common with many other fields that combine computation, mathematics and statistics with the sciences, a lot of thought and energy is going into the creation of truly cross-disciplinary practitioners. The goal is to combine in one brain a rich knowledge of both biology and computation, because answering the questions that arise in one has become heavily dependent on mastering the skills developed in the other. 
