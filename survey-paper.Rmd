@@ -165,7 +165,7 @@ colnames(result) <- cols
 infrastructure <- likert(result, grouping = cleanData$SurveyType)
 
 title <- "The following development tools are used in your organisation's projects"
-plot(infrastructure, legend = "Profession", centered="true", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme
+plot(infrastructure, legend = "Profession", centered="true", legend.position = "bottom") + ggtitle(title) + titleTheme + textTheme + theme_bw()
 ```
 
 From the first set of results (Figure \ref{fig:infrastructure}) it's clear that business software developers and life scientists have distinctly different attitudes towards the standard elements of software engineering infrastructure. Commercial developers almost unanimously *strongly agree* with the statement that build systems, source control, IDEs and Continuous Integration engines are used in their place of work. Life scientists show no such consensus. The closest they come to each other is in their attitude to the statement on source control where on average they *agree* with it, but where a significant minority have no opinion or disagree. Source control systems are of central importance in software engineering practice, on a par with disinfectant in an operating theatre. Complete adherence to their use should be considered the norm, as is borne out by the business software respondents. The other three elements should be considered similarly vital to good software engineering practice.
